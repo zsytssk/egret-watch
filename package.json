@@ -1,0 +1,22 @@
+{
+  "name": "watch-egret",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ts-node": "ts-node --files src/main.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.2",
+    "@types/node": "^12.7.12",
+    "@types/socket.io": "^2.1.4",
+    "express": "^4.17.1",
+    "node-watch": "^0.6.3",
+    "socket.io": "^2.3.0",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  }
+}

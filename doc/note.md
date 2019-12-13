@@ -1,3 +1,7 @@
+- @ques 再刷新的时候 收到一个编译的任务怎么处理
+  - 每次有一个 id 每次刷新之前 将自己的 id 保存
+  - 每次刷新之后将自己的 id 返回给服务端
+
 https://expressjs.com/en/starter/hello-world.html
 
 - @ques 监听修改的文件（显示 compiling） + 修改 debugView

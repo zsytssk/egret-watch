@@ -1,11 +1,12 @@
 import * as child_process from "child_process";
 const { exec } = child_process;
 
-type Opts = {
+export type Opts = {
   path?: string;
   output?: boolean;
 };
-export function excuse(command: string, opts: Opts) {
+export type OnOutput = (data: string) => void;
+export function excuse(command: string, opts: Opts, on_output?: OnOutput) {
   const { path, output } = opts;
   const config: any = { maxBuffer: 1024 * 1024 * 100, encoding: "utf-8" };
   if (path) {
@@ -26,6 +27,9 @@ export function excuse(command: string, opts: Opts) {
     }
 
     run_process.stdout.on("data", data => {
+      if (on_output) {
+        on_output(data);
+      }
       std_out += data;
     });
     run_process.stderr.on("data", data => {
@@ -42,13 +46,13 @@ export function excuse(command: string, opts: Opts) {
   });
 }
 
-export async function execArr(cmds: Array<string>, opts: Opts) {
-  if (!Array.isArray(cmds)) {
-    return await excuse(cmds, opts);
+export async function execArr(cmd_list: Array<string>, opts: Opts) {
+  if (!Array.isArray(cmd_list)) {
+    return await excuse(cmd_list, opts);
   }
 
   const result = [];
-  for (const cmd of cmds) {
+  for (const cmd of cmd_list) {
     const item = await excuse(cmd, opts);
     result.push(item);
   }

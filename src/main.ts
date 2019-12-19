@@ -10,10 +10,7 @@ function main() {
   app.listen(8888);
 
   server.on("connection", socket => {
-    console.log("client is connect connected");
     socket.on("data", (index: number) => {
-      console.log(`data:>`, index);
-
       if (index && Number(index) < cur_index) {
         socket.emit("data", { msg: "end" as CompileType, index: cur_index });
       }

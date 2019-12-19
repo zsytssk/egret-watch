@@ -26,8 +26,18 @@ export function compile(): Observable<CompileType> {
     // 监听文件修改
     const src = path.resolve(path_str, "src");
     const resource = path.resolve(path_str, "resource");
+    const build = path.resolve(path_str, "bin-debug");
     nodeWatch([src, resource], { recursive: true }, () => {
       subscriber.next("compile");
+    });
+    // 23
+    let change_index = 0;
+    nodeWatch([build], () => {
+      change_index++;
+      if (change_index > 24) {
+        subscriber.next("end");
+        change_index = 0;
+      }
     });
   });
 }

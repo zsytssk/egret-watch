@@ -2,6 +2,7 @@ import * as express from "express";
 import socket from "socket.io";
 import { compile, CompileType } from "./compile";
 
+const project_path = process.argv[2];
 function main() {
   const app = express.default();
   const server = socket.listen(8889);
@@ -18,7 +19,7 @@ function main() {
     socket.emit("onopen");
   });
   let cur_index = 0;
-  compile().subscribe(msg => {
+  compile(project_path).subscribe(msg => {
     if (msg === "end") {
       cur_index++;
     }

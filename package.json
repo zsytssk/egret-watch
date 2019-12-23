@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "run-watch-egret": "ts-node --files src/main.ts"
+    "run-watch-egret:hhgzmj": "ts-node --files src/main.ts D:/zsytssk/job/hhgzmj",
+    "run-watch-egret:hhgzmj_copy": "ts-node --files src/main.ts D:/zsytssk/job/hhgzmj_copy"
   },
   "keywords": [],
   "author": "",

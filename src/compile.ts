@@ -5,16 +5,19 @@ import { Observable } from "rxjs";
 import { throttlePromise } from "./throttle";
 
 export type CompileType = "compile" | "end";
+/** 防止 resource 无限循环的修改 */
 let is_building = false;
 export function compile(project_path: string): Observable<CompileType> {
   return new Observable(subscriber => {
-    const run = throttlePromise(() => {
+    const [run, isEnd] = throttlePromise(() => {
       console.log(`start build...`);
       subscriber.next("compile");
       is_building = true;
       return egretBuild(project_path).then(() => {
         is_building = false;
-        subscriber.next("end");
+        if (isEnd()) {
+          subscriber.next("end");
+        }
       });
     });
     watchChange(project_path).subscribe(run);

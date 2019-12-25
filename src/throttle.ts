@@ -1,7 +1,7 @@
 type ThrottleFn = (...params: any[]) => Promise<any>;
 
 /** promise 执行完成之后 才继续执行..., 保存最后一个 中间会被清空 */
-export function throttlePromise(fn: ThrottleFn) {
+export function throttlePromise(fn: ThrottleFn): [() => void, () => boolean] {
   let arr: number[] = [];
   let running = false;
   function addToRun() {
@@ -23,5 +23,9 @@ export function throttlePromise(fn: ThrottleFn) {
       .catch(run);
   }
 
-  return addToRun;
+  function isEnd() {
+    return arr.length === 0;
+  }
+
+  return [addToRun, isEnd];
 }

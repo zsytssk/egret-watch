@@ -17,7 +17,8 @@ function main() {
   app.get(`/watchEgret`, (req, res) => {
     fs.readFile(project_path + "/index.html", "utf8", (err, data) => {
       var $ = cheerio.load(data);
-      var scriptNode = '<script src="watch-egret.js"/>';
+      var scriptNode = '<script src="watchEgret.js"/>';
+      var scriptNode = '<script src="listenLoadScript.js"/>';
       $("body").append(scriptNode);
       res.send($.html());
     });

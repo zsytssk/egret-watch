@@ -8,6 +8,7 @@ function main() {
   const server = socket.listen(8889);
 
   app.use(express.static("src/static"));
+  app.use(express.static(project_path));
   app.listen(8888);
 
   server.on("connection", socket => {

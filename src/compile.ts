@@ -1,49 +1,49 @@
 import { excuse } from "./zutil/ls/exec";
-import { Config } from "./config";
 import * as path from "path";
 import { default as nodeWatch } from "node-watch";
 import { Observable } from "rxjs";
+import { throttlePromise } from "./throttle";
 
 export type CompileType = "compile" | "end";
+let is_building = false;
 export function compile(project_path: string): Observable<CompileType> {
   return new Observable(subscriber => {
-    let output_temp = "";
+    const run = throttlePromise(() => {
+      console.log(`start build...`);
+      subscriber.next("compile");
+      is_building = true;
+      return egretBuild(project_path).then(() => {
+        is_building = false;
+        subscriber.next("end");
+      });
+    });
+    watchChange(project_path).subscribe(run);
+  });
+}
 
-    // 监听编译结束
-    excuse(
-      "egret run -sourcemap -a",
-      { path: project_path, output: true },
-      (output: string) => {
-        output_temp += output;
-        if (output_temp.indexOf("自动编译完成")) {
-          output_temp = "";
-          subscriber.next("end");
-        }
-      }
-    );
-
+function watchChange(project_path: string) {
+  return new Observable(subscriber => {
     // 监听文件修改
     const src = path.resolve(project_path, "src");
     const resource = path.resolve(project_path, "resource");
-    const build = path.resolve(project_path, "bin-debug");
     nodeWatch([src], { recursive: true }, () => {
-      subscriber.next("compile");
+      subscriber.next();
     });
 
     /** resource 修改 直接刷新页面 */
     nodeWatch([resource], { recursive: true }, () => {
-      subscriber.next("end");
-    });
-
-    // 23
-    /** 监听 “自动编译完成” 有问题 不得不 监听bin-debug文件修改次数 */
-    let change_index = 0;
-    nodeWatch([build], () => {
-      change_index++;
-      if (change_index > 24) {
-        subscriber.next("end");
-        change_index = 0;
+      if (!is_building) {
+        subscriber.next();
       }
     });
+
+    subscriber.next();
+  });
+}
+
+function egretBuild(project_path: string) {
+  return excuse("egret build -sourcemap", {
+    path: project_path,
+    output: true
   });
 }

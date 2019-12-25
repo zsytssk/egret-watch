@@ -1,3 +1,9 @@
+- @todo 每次监听改变自动去 egret run
+
+- egret build 添加 sourcemap
+
+`egret build -sourceMap`
+
 ## 2019-12-23 10:19:27
 
 - @ques 能不能同时启动两个 watch

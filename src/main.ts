@@ -3,7 +3,6 @@ import socket from "socket.io";
 import { compile, CompileType } from "./compile";
 import cheerio from "cheerio";
 import fs from "fs";
-import path from "path";
 
 const project_path = process.argv[2];
 function main() {
@@ -18,7 +17,7 @@ function main() {
   app.get(`/watchEgret`, (req, res) => {
     fs.readFile(project_path + "/index.html", "utf8", (err, data) => {
       var $ = cheerio.load(data);
-      var scriptNode = '<script src="http://localhost:8888/watch-egret.js"/>';
+      var scriptNode = '<script src="watch-egret.js"/>';
       $("body").append(scriptNode);
       res.send($.html());
     });

@@ -6,16 +6,15 @@ window.addEventListener(
     const env = vars.env;
     const uid = vars.uid;
 
+    /** 直接跳过 debugLoginView, 最好都不打开这个页面 */
+    debugLoginView.prototype.childrenCreated = function() {
+      App.env = env;
+      PIMgr.Inst.js_code = uid;
+      this.dispatchEvent(new egret.Event("debug", false, false));
+    };
+    /** 取消initLifecycle设置 */
+    Main.prototype.initLifecycle = function() {};
     if (env === "dev2") {
-      /** 直接跳过 debugLoginView, 最好都不打开这个页面 */
-      debugLoginView.prototype.childrenCreated = function() {
-        App.env = env;
-        PIMgr.Inst.js_code = uid;
-        this.dispatchEvent(new egret.Event("debug", false, false));
-      };
-      /** 取消initLifecycle设置 */
-      Main.prototype.initLifecycle = function() {};
-
       // App.DebugUtils.isPC = () => { return false }
     }
   },

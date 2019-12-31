@@ -3,8 +3,6 @@
     "experimentalDecorators": true,
     "module": "commonjs",
     "moduleResolution": "node",
-    "rootDir": "./src",
-    "outDir": "./dist",
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "sourceMap": false,
@@ -13,7 +11,13 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "esModuleInterop": true,
-    "strict": true
+    "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "*": ["node_modules/*", "src/*", "test/*"]
+    }
   },
-  "include": ["./src"]
+  "references": [{ "path": "../../job/hhgzmj" }],
+  "include": ["src", "test", "D:\\zsytssk\\job\\hhgzmj"],
+  "exclude": ["node_modules"]
 }

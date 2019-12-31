@@ -3,6 +3,7 @@ import socket from "socket.io";
 import { compile, CompileType } from "./compile";
 import cheerio from "cheerio";
 import fs from "fs";
+import { watchTest } from "./watchTest";
 
 const project_path = process.argv[2];
 function main() {
@@ -34,6 +35,12 @@ function main() {
   });
   let cur_index = 0;
   compile(project_path).subscribe(msg => {
+    if (msg === "end") {
+      cur_index++;
+    }
+    server.emit("data", { msg, index: cur_index });
+  });
+  watchTest().subscribe(msg => {
     if (msg === "end") {
       cur_index++;
     }

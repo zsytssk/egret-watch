@@ -1,22 +1,257 @@
-// 测试代码
-function injectAfter(instance, fun_name, func) {
-  const ori_fun = instance.prototype[fun_name];
-  instance.prototype[fun_name] = function(...params) {
-    const result = ori_fun.apply(this, [...params]);
-    if (result instanceof Promise) {
-      result.then(() => {
-        func(this, result, ...params);
-      });
-    } else {
-      func(this, result, ...params);
-    }
-    return result;
-  };
-}
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ({
 
-injectAfter(gdmj.HallView, "initUI", function() {
-  // setTimeout(() => {
-  //     App.WindowMgr.closeAll();
-  //     App.WindowMgr.open(WindowConst.GameRule, 12);
-  // }, 1000)
-});
+/***/ "./test/egret/egretUtils.ts":
+/*!**********************************!*\
+  !*** ./test/egret/egretUtils.ts ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nfunction getStage() {\r\n    return egret.MainContext.instance.stage;\r\n}\r\nexports.getStage = getStage;\r\nfunction watchStageClick() {\r\n    const stage = getStage();\r\n    stage.addEventListener(egret.TouchEvent.TOUCH_TAP, (e) => {\r\n        console.log(`stageClick:>`, e.target, e.currentTarget);\r\n    }, null);\r\n}\r\nexports.watchStageClick = watchStageClick;\r\nexports.egretUtils = {\r\n    watchStageClick,\r\n    getStage\r\n};\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi90ZXN0L2VncmV0L2VncmV0VXRpbHMudHM/NTA1OCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBYTtBQUNiLDhDQUE4QyxjQUFjO0FBQzVEO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwiZmlsZSI6Ii4vdGVzdC9lZ3JldC9lZ3JldFV0aWxzLnRzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XHJcbk9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCBcIl9fZXNNb2R1bGVcIiwgeyB2YWx1ZTogdHJ1ZSB9KTtcclxuZnVuY3Rpb24gZ2V0U3RhZ2UoKSB7XHJcbiAgICByZXR1cm4gZWdyZXQuTWFpbkNvbnRleHQuaW5zdGFuY2Uuc3RhZ2U7XHJcbn1cclxuZXhwb3J0cy5nZXRTdGFnZSA9IGdldFN0YWdlO1xyXG5mdW5jdGlvbiB3YXRjaFN0YWdlQ2xpY2soKSB7XHJcbiAgICBjb25zdCBzdGFnZSA9IGdldFN0YWdlKCk7XHJcbiAgICBzdGFnZS5hZGRFdmVudExpc3RlbmVyKGVncmV0LlRvdWNoRXZlbnQuVE9VQ0hfVEFQLCAoZSkgPT4ge1xyXG4gICAgICAgIGNvbnNvbGUubG9nKGBzdGFnZUNsaWNrOj5gLCBlLnRhcmdldCwgZS5jdXJyZW50VGFyZ2V0KTtcclxuICAgIH0sIG51bGwpO1xyXG59XHJcbmV4cG9ydHMud2F0Y2hTdGFnZUNsaWNrID0gd2F0Y2hTdGFnZUNsaWNrO1xyXG5leHBvcnRzLmVncmV0VXRpbHMgPSB7XHJcbiAgICB3YXRjaFN0YWdlQ2xpY2ssXHJcbiAgICBnZXRTdGFnZVxyXG59O1xyXG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./test/egret/egretUtils.ts\n");
+
+/***/ }),
+
+/***/ "./test/game/gameUtils.ts":
+/*!********************************!*\
+  !*** ./test/game/gameUtils.ts ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nfunction getGameModel() {\r\n    return App.ControllerManager.getControllerModel(ControllerConst.Game);\r\n}\r\nexports.getGameModel = getGameModel;\r\nfunction getUserHandCard() {\r\n    let gameModel = getGameModel();\r\n    if (gameModel == null || gameModel.homeInfo == null) {\r\n        return;\r\n    }\r\n    let uid = gdmj.GameContext.uid;\r\n    let handCardInfo = gameModel.handCardMap;\r\n    return handCardInfo == null || handCardInfo[uid];\r\n}\r\nexports.getUserHandCard = getUserHandCard;\r\nfunction getMenInfo() {\r\n    let gameModel = getGameModel();\r\n    return gameModel.$menInfo;\r\n}\r\nexports.getMenInfo = getMenInfo;\r\nexports.gameUtils = {\r\n    getUserHandCard,\r\n    getGameModel,\r\n    getMenInfo,\r\n};\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi90ZXN0L2dhbWUvZ2FtZVV0aWxzLnRzPzFhOWUiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQWE7QUFDYiw4Q0FBOEMsY0FBYztBQUM1RDtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJmaWxlIjoiLi90ZXN0L2dhbWUvZ2FtZVV0aWxzLnRzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XHJcbk9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCBcIl9fZXNNb2R1bGVcIiwgeyB2YWx1ZTogdHJ1ZSB9KTtcclxuZnVuY3Rpb24gZ2V0R2FtZU1vZGVsKCkge1xyXG4gICAgcmV0dXJuIEFwcC5Db250cm9sbGVyTWFuYWdlci5nZXRDb250cm9sbGVyTW9kZWwoQ29udHJvbGxlckNvbnN0LkdhbWUpO1xyXG59XHJcbmV4cG9ydHMuZ2V0R2FtZU1vZGVsID0gZ2V0R2FtZU1vZGVsO1xyXG5mdW5jdGlvbiBnZXRVc2VySGFuZENhcmQoKSB7XHJcbiAgICBsZXQgZ2FtZU1vZGVsID0gZ2V0R2FtZU1vZGVsKCk7XHJcbiAgICBpZiAoZ2FtZU1vZGVsID09IG51bGwgfHwgZ2FtZU1vZGVsLmhvbWVJbmZvID09IG51bGwpIHtcclxuICAgICAgICByZXR1cm47XHJcbiAgICB9XHJcbiAgICBsZXQgdWlkID0gZ2Rtai5HYW1lQ29udGV4dC51aWQ7XHJcbiAgICBsZXQgaGFuZENhcmRJbmZvID0gZ2FtZU1vZGVsLmhhbmRDYXJkTWFwO1xyXG4gICAgcmV0dXJuIGhhbmRDYXJkSW5mbyA9PSBudWxsIHx8IGhhbmRDYXJkSW5mb1t1aWRdO1xyXG59XHJcbmV4cG9ydHMuZ2V0VXNlckhhbmRDYXJkID0gZ2V0VXNlckhhbmRDYXJkO1xyXG5mdW5jdGlvbiBnZXRNZW5JbmZvKCkge1xyXG4gICAgbGV0IGdhbWVNb2RlbCA9IGdldEdhbWVNb2RlbCgpO1xyXG4gICAgcmV0dXJuIGdhbWVNb2RlbC4kbWVuSW5mbztcclxufVxyXG5leHBvcnRzLmdldE1lbkluZm8gPSBnZXRNZW5JbmZvO1xyXG5leHBvcnRzLmdhbWVVdGlscyA9IHtcclxuICAgIGdldFVzZXJIYW5kQ2FyZCxcclxuICAgIGdldEdhbWVNb2RlbCxcclxuICAgIGdldE1lbkluZm8sXHJcbn07XHJcbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./test/game/gameUtils.ts\n");
+
+/***/ }),
+
+/***/ "./test/test.ts":
+/*!**********************!*\
+  !*** ./test/test.ts ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst utils_1 = __webpack_require__(/*! utils/utils */ \"./test/utils/utils.ts\");\r\nconst testMap_1 = __webpack_require__(/*! testMap */ \"./test/testMap.ts\");\r\nconst gameUtils_1 = __webpack_require__(/*! game/gameUtils */ \"./test/game/gameUtils.ts\");\r\nconst egretUtils_1 = __webpack_require__(/*! egret/egretUtils */ \"./test/egret/egretUtils.ts\");\r\nconst test = {\r\n    egretUtils: egretUtils_1.egretUtils,\r\n    gameUtils: gameUtils_1.gameUtils\r\n};\r\nutils_1.injectWindow({ test, testMap: testMap_1.testMap });\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi90ZXN0L3Rlc3QudHM/MTUzMiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBYTtBQUNiLDhDQUE4QyxjQUFjO0FBQzVELGdCQUFnQixtQkFBTyxDQUFDLDBDQUFhO0FBQ3JDLGtCQUFrQixtQkFBTyxDQUFDLGtDQUFTO0FBQ25DLG9CQUFvQixtQkFBTyxDQUFDLGdEQUFnQjtBQUM1QyxxQkFBcUIsbUJBQU8sQ0FBQyxvREFBa0I7QUFDL0M7QUFDQTtBQUNBO0FBQ0E7QUFDQSxzQkFBc0IsbUNBQW1DIiwiZmlsZSI6Ii4vdGVzdC90ZXN0LnRzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XHJcbk9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCBcIl9fZXNNb2R1bGVcIiwgeyB2YWx1ZTogdHJ1ZSB9KTtcclxuY29uc3QgdXRpbHNfMSA9IHJlcXVpcmUoXCJ1dGlscy91dGlsc1wiKTtcclxuY29uc3QgdGVzdE1hcF8xID0gcmVxdWlyZShcInRlc3RNYXBcIik7XHJcbmNvbnN0IGdhbWVVdGlsc18xID0gcmVxdWlyZShcImdhbWUvZ2FtZVV0aWxzXCIpO1xyXG5jb25zdCBlZ3JldFV0aWxzXzEgPSByZXF1aXJlKFwiZWdyZXQvZWdyZXRVdGlsc1wiKTtcclxuY29uc3QgdGVzdCA9IHtcclxuICAgIGVncmV0VXRpbHM6IGVncmV0VXRpbHNfMS5lZ3JldFV0aWxzLFxyXG4gICAgZ2FtZVV0aWxzOiBnYW1lVXRpbHNfMS5nYW1lVXRpbHNcclxufTtcclxudXRpbHNfMS5pbmplY3RXaW5kb3coeyB0ZXN0LCB0ZXN0TWFwOiB0ZXN0TWFwXzEudGVzdE1hcCB9KTtcclxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./test/test.ts\n");
+
+/***/ }),
+
+/***/ "./test/testBuilder/externFun.ts":
+/*!***************************************!*\
+  !*** ./test/testBuilder/externFun.ts ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n// type RunTest = ();\r\nfunction mapTest(scope) {\r\n    const { children } = scope;\r\n    const { map, n } = mapTestScope(scope);\r\n    const run = createRun(scope, map);\r\n    let result;\r\n    if (n >= 1) {\r\n        result = { run, map };\r\n    }\r\n    else {\r\n        result = {};\r\n    }\r\n    for (const item of children) {\r\n        const { name } = item;\r\n        if (result[name]) {\r\n            console.warn(`TestBuilder:>`, `${scope.name} has two children has same name:${name}`);\r\n        }\r\n        result[name] = mapTest(item);\r\n    }\r\n    return result;\r\n}\r\nexports.mapTest = mapTest;\r\nfunction mapTestScope(scope) {\r\n    const { entity_list } = scope;\r\n    const map = {};\r\n    let n = 0;\r\n    for (const [index, item] of entity_list.entries()) {\r\n        map[index] = item.msg;\r\n        n++;\r\n    }\r\n    return {\r\n        map,\r\n        n,\r\n    };\r\n}\r\nfunction createRun(scope, map) {\r\n    return (index, ...params) => {\r\n        if (typeof index === 'number') {\r\n            return scope.runTest(map[index], params);\r\n        }\r\n        else if (typeof index === 'string') {\r\n            return scope.runTest(index, params);\r\n        }\r\n    };\r\n}\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi90ZXN0L3Rlc3RCdWlsZGVyL2V4dGVybkZ1bi50cz9mZmIxIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFhO0FBQ2IsOENBQThDLGNBQWM7QUFDNUQ7QUFDQTtBQUNBLFdBQVcsV0FBVztBQUN0QixXQUFXLFNBQVM7QUFDcEI7QUFDQTtBQUNBO0FBQ0Esa0JBQWtCO0FBQ2xCO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxlQUFlLE9BQU87QUFDdEI7QUFDQSw2Q0FBNkMsV0FBVyxrQ0FBa0MsS0FBSztBQUMvRjtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLFdBQVcsY0FBYztBQUN6QjtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJmaWxlIjoiLi90ZXN0L3Rlc3RCdWlsZGVyL2V4dGVybkZ1bi50cy5qcyIsInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHN0cmljdFwiO1xyXG5PYmplY3QuZGVmaW5lUHJvcGVydHkoZXhwb3J0cywgXCJfX2VzTW9kdWxlXCIsIHsgdmFsdWU6IHRydWUgfSk7XHJcbi8vIHR5cGUgUnVuVGVzdCA9ICgpO1xyXG5mdW5jdGlvbiBtYXBUZXN0KHNjb3BlKSB7XHJcbiAgICBjb25zdCB7IGNoaWxkcmVuIH0gPSBzY29wZTtcclxuICAgIGNvbnN0IHsgbWFwLCBuIH0gPSBtYXBUZXN0U2NvcGUoc2NvcGUpO1xyXG4gICAgY29uc3QgcnVuID0gY3JlYXRlUnVuKHNjb3BlLCBtYXApO1xyXG4gICAgbGV0IHJlc3VsdDtcclxuICAgIGlmIChuID49IDEpIHtcclxuICAgICAgICByZXN1bHQgPSB7IHJ1biwgbWFwIH07XHJcbiAgICB9XHJcbiAgICBlbHNlIHtcclxuICAgICAgICByZXN1bHQgPSB7fTtcclxuICAgIH1cclxuICAgIGZvciAoY29uc3QgaXRlbSBvZiBjaGlsZHJlbikge1xyXG4gICAgICAgIGNvbnN0IHsgbmFtZSB9ID0gaXRlbTtcclxuICAgICAgICBpZiAocmVzdWx0W25hbWVdKSB7XHJcbiAgICAgICAgICAgIGNvbnNvbGUud2FybihgVGVzdEJ1aWxkZXI6PmAsIGAke3Njb3BlLm5hbWV9IGhhcyB0d28gY2hpbGRyZW4gaGFzIHNhbWUgbmFtZToke25hbWV9YCk7XHJcbiAgICAgICAgfVxyXG4gICAgICAgIHJlc3VsdFtuYW1lXSA9IG1hcFRlc3QoaXRlbSk7XHJcbiAgICB9XHJcbiAgICByZXR1cm4gcmVzdWx0O1xyXG59XHJcbmV4cG9ydHMubWFwVGVzdCA9IG1hcFRlc3Q7XHJcbmZ1bmN0aW9uIG1hcFRlc3RTY29wZShzY29wZSkge1xyXG4gICAgY29uc3QgeyBlbnRpdHlfbGlzdCB9ID0gc2NvcGU7XHJcbiAgICBjb25zdCBtYXAgPSB7fTtcclxuICAgIGxldCBuID0gMDtcclxuICAgIGZvciAoY29uc3QgW2luZGV4LCBpdGVtXSBvZiBlbnRpdHlfbGlzdC5lbnRyaWVzKCkpIHtcclxuICAgICAgICBtYXBbaW5kZXhdID0gaXRlbS5tc2c7XHJcbiAgICAgICAgbisrO1xyXG4gICAgfVxyXG4gICAgcmV0dXJuIHtcclxuICAgICAgICBtYXAsXHJcbiAgICAgICAgbixcclxuICAgIH07XHJcbn1cclxuZnVuY3Rpb24gY3JlYXRlUnVuKHNjb3BlLCBtYXApIHtcclxuICAgIHJldHVybiAoaW5kZXgsIC4uLnBhcmFtcykgPT4ge1xyXG4gICAgICAgIGlmICh0eXBlb2YgaW5kZXggPT09ICdudW1iZXInKSB7XHJcbiAgICAgICAgICAgIHJldHVybiBzY29wZS5ydW5UZXN0KG1hcFtpbmRleF0sIHBhcmFtcyk7XHJcbiAgICAgICAgfVxyXG4gICAgICAgIGVsc2UgaWYgKHR5cGVvZiBpbmRleCA9PT0gJ3N0cmluZycpIHtcclxuICAgICAgICAgICAgcmV0dXJuIHNjb3BlLnJ1blRlc3QoaW5kZXgsIHBhcmFtcyk7XHJcbiAgICAgICAgfVxyXG4gICAgfTtcclxufVxyXG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./test/testBuilder/externFun.ts\n");
+
+/***/ }),
+
+/***/ "./test/testBuilder/index.ts":
+/*!***********************************!*\
+  !*** ./test/testBuilder/index.ts ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar utils_1 = __webpack_require__(/*! ./utils */ \"./test/testBuilder/utils.ts\");\r\nexports.noImplement = utils_1.noImplement;\r\nexports.newError = utils_1.newError;\r\nvar testScope_1 = __webpack_require__(/*! ./testScope */ \"./test/testBuilder/testScope.ts\");\r\nexports.Test = testScope_1.TestScopeCtor;\r\nvar testBuilder_1 = __webpack_require__(/*! ./testBuilder */ \"./test/testBuilder/testBuilder.ts\");\r\nexports.TestBuilder = testBuilder_1.TestBuilderCtor;\r\nvar externFun_1 = __webpack_require__(/*! ./externFun */ \"./test/testBuilder/externFun.ts\");\r\nexports.mapTest = externFun_1.mapTest;\r\nvar interface_1 = __webpack_require__(/*! ./interface */ \"./test/testBuilder/interface.ts\");\r\nexports.TestUtil = interface_1.TestUtil;\r\nexports.TestConfig = interface_1.TestConfig;\r\nexports.TestScope = interface_1.TestScope;\r\nexports.TestFun = interface_1.TestFun;\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi90ZXN0L3Rlc3RCdWlsZGVyL2luZGV4LnRzPzQ5NWEiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQWE7QUFDYiw4Q0FBOEMsY0FBYztBQUM1RCxjQUFjLG1CQUFPLENBQUMsNENBQVM7QUFDL0I7QUFDQTtBQUNBLGtCQUFrQixtQkFBTyxDQUFDLG9EQUFhO0FBQ3ZDO0FBQ0Esb0JBQW9CLG1CQUFPLENBQUMsd0RBQWU7QUFDM0M7QUFDQSxrQkFBa0IsbUJBQU8sQ0FBQyxvREFBYTtBQUN2QztBQUNBLGtCQUFrQixtQkFBTyxDQUFDLG9EQUFhO0FBQ3ZDO0FBQ0E7QUFDQTtBQUNBIiwiZmlsZSI6Ii4vdGVzdC90ZXN0QnVpbGRlci9pbmRleC50cy5qcyIsInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHN0cmljdFwiO1xyXG5PYmplY3QuZGVmaW5lUHJvcGVydHkoZXhwb3J0cywgXCJfX2VzTW9kdWxlXCIsIHsgdmFsdWU6IHRydWUgfSk7XHJcbnZhciB1dGlsc18xID0gcmVxdWlyZShcIi4vdXRpbHNcIik7XHJcbmV4cG9ydHMubm9JbXBsZW1lbnQgPSB1dGlsc18xLm5vSW1wbGVtZW50O1xyXG5leHBvcnRzLm5ld0Vycm9yID0gdXRpbHNfMS5uZXdFcnJvcjtcclxudmFyIHRlc3RTY29wZV8xID0gcmVxdWlyZShcIi4vdGVzdFNjb3BlXCIpO1xyXG5leHBvcnRzLlRlc3QgPSB0ZXN0U2NvcGVfMS5UZXN0U2NvcGVDdG9yO1xyXG52YXIgdGVzdEJ1aWxkZXJfMSA9IHJlcXVpcmUoXCIuL3Rlc3RCdWlsZGVyXCIpO1xyXG5leHBvcnRzLlRlc3RCdWlsZGVyID0gdGVzdEJ1aWxkZXJfMS5UZXN0QnVpbGRlckN0b3I7XHJcbnZhciBleHRlcm5GdW5fMSA9IHJlcXVpcmUoXCIuL2V4dGVybkZ1blwiKTtcclxuZXhwb3J0cy5tYXBUZXN0ID0gZXh0ZXJuRnVuXzEubWFwVGVzdDtcclxudmFyIGludGVyZmFjZV8xID0gcmVxdWlyZShcIi4vaW50ZXJmYWNlXCIpO1xyXG5leHBvcnRzLlRlc3RVdGlsID0gaW50ZXJmYWNlXzEuVGVzdFV0aWw7XHJcbmV4cG9ydHMuVGVzdENvbmZpZyA9IGludGVyZmFjZV8xLlRlc3RDb25maWc7XHJcbmV4cG9ydHMuVGVzdFNjb3BlID0gaW50ZXJmYWNlXzEuVGVzdFNjb3BlO1xyXG5leHBvcnRzLlRlc3RGdW4gPSBpbnRlcmZhY2VfMS5UZXN0RnVuO1xyXG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./test/testBuilder/index.ts\n");
+
+/***/ }),
+
+/***/ "./test/testBuilder/interface.ts":
+/*!***************************************!*\
+  !*** ./test/testBuilder/interface.ts ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar TestResult;\r\n(function (TestResult) {\r\n    TestResult[\"Fail\"] = \"fail\";\r\n    TestResult[\"Success\"] = \"success\";\r\n})(TestResult = exports.TestResult || (exports.TestResult = {}));\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi90ZXN0L3Rlc3RCdWlsZGVyL2ludGVyZmFjZS50cz9hNGM5Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFhO0FBQ2IsOENBQThDLGNBQWM7QUFDNUQ7QUFDQTtBQUNBO0FBQ0E7QUFDQSxDQUFDLDZEQUE2RCIsImZpbGUiOiIuL3Rlc3QvdGVzdEJ1aWxkZXIvaW50ZXJmYWNlLnRzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XHJcbk9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCBcIl9fZXNNb2R1bGVcIiwgeyB2YWx1ZTogdHJ1ZSB9KTtcclxudmFyIFRlc3RSZXN1bHQ7XHJcbihmdW5jdGlvbiAoVGVzdFJlc3VsdCkge1xyXG4gICAgVGVzdFJlc3VsdFtcIkZhaWxcIl0gPSBcImZhaWxcIjtcclxuICAgIFRlc3RSZXN1bHRbXCJTdWNjZXNzXCJdID0gXCJzdWNjZXNzXCI7XHJcbn0pKFRlc3RSZXN1bHQgPSBleHBvcnRzLlRlc3RSZXN1bHQgfHwgKGV4cG9ydHMuVGVzdFJlc3VsdCA9IHt9KSk7XHJcbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./test/testBuilder/interface.ts\n");
+
+/***/ }),
+
+/***/ "./test/testBuilder/state.ts":
+/*!***********************************!*\
+  !*** ./test/testBuilder/state.ts ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst testEntity_1 = __webpack_require__(/*! ./testEntity */ \"./test/testBuilder/testEntity.ts\");\r\nconst utils_1 = __webpack_require__(/*! ./utils */ \"./test/testBuilder/utils.ts\");\r\nexports.entity_list = [];\r\nfunction initState() {\r\n    exports.test_util = {\r\n        describe,\r\n        it,\r\n        afterAll,\r\n        beforeAll,\r\n        afterEach,\r\n        beforeEach,\r\n    };\r\n}\r\nexports.initState = initState;\r\n/** 打开Test */\r\nfunction parseTest(run_fun) {\r\n    exports.entity_list = [];\r\n    try {\r\n        run_fun(exports.test_util);\r\n    }\r\n    catch (e) {\r\n        console.error(`TestBuilder:>`, e.stack ? e.stack : e);\r\n    }\r\n    return exports.entity_list;\r\n}\r\nexports.parseTest = parseTest;\r\nfunction describe(msg, fun) {\r\n    const entity = new testEntity_1.TestEntityCtor(msg, fun);\r\n    exports.entity_list.push(entity);\r\n}\r\nfunction it(msg, fun) {\r\n    exports.cur_test_entity.itemList.push({\r\n        msg,\r\n        fun,\r\n    });\r\n}\r\nfunction afterAll(fun) {\r\n    exports.cur_test_entity.afterAll.push(fun);\r\n}\r\nfunction beforeAll(fun) {\r\n    exports.cur_test_entity.beforeAll.push(fun);\r\n}\r\nfunction afterEach(fun) {\r\n    exports.cur_test_entity.afterEach.push(fun);\r\n}\r\nfunction beforeEach(fun) {\r\n    exports.cur_test_entity.beforeEach.push(fun);\r\n}\r\nasync function parseTestEntity(entity, params = []) {\r\n    const { fun } = entity;\r\n    console.group(`TestBuilder:>`, entity.msg);\r\n    exports.cur_test_entity = entity;\r\n    try {\r\n        fun(...params);\r\n    }\r\n    catch (e) {\r\n        console.error(`TestBuilder:>`, e.stack ? e.stack : e);\r\n    }\r\n    exports.cur_test_entity = undefined;\r\n    await runTestEntity(entity);\r\n    console.groupEnd();\r\n}\r\nexports.parseTestEntity = parseTestEntity;\r\nasync function runTestEntity(entity, params) {\r\n    // tslint:disable-next-line\r\n    const { afterAll, afterEach, beforeAll, beforeEach, itemList } = entity;\r\n    await utils_1.asyncRunTestFunArr(beforeAll, 'concurrent');\r\n    for (const item of itemList) {\r\n        await utils_1.asyncRunTestFunArr(beforeEach, 'concurrent');\r\n        await utils_1.asyncRunTestFun(item.fun)\r\n            .then(() => {\r\n            console.log(`TestBuilder:>`, 'success:>', item.msg, 'success');\r\n        })\r\n            .catch(err => {\r\n            console.error(`TestBuilder:>`, 'fail:>', item.msg, 'fail');\r\n        });\r\n        await utils_1.asyncRunTestFunArr(afterEach, 'concurrent');\r\n    }\r\n    await utils_1.asyncRunTestFunArr(afterAll, 'concurrent');\r\n}\r\nexports.runTestEntity = runTestEntity;\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi90ZXN0L3Rlc3RCdWlsZGVyL3N0YXRlLnRzP2EyOTQiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQWE7QUFDYiw4Q0FBOEMsY0FBYztBQUM1RCxxQkFBcUIsbUJBQU8sQ0FBQyxzREFBYztBQUMzQyxnQkFBZ0IsbUJBQU8sQ0FBQyw0Q0FBUztBQUNqQztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxXQUFXLE1BQU07QUFDakI7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsV0FBVyx1REFBdUQ7QUFDbEU7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsU0FBUztBQUNUO0FBQ0E7QUFDQSxTQUFTO0FBQ1Q7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsImZpbGUiOiIuL3Rlc3QvdGVzdEJ1aWxkZXIvc3RhdGUudHMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJcInVzZSBzdHJpY3RcIjtcclxuT2JqZWN0LmRlZmluZVByb3BlcnR5KGV4cG9ydHMsIFwiX19lc01vZHVsZVwiLCB7IHZhbHVlOiB0cnVlIH0pO1xyXG5jb25zdCB0ZXN0RW50aXR5XzEgPSByZXF1aXJlKFwiLi90ZXN0RW50aXR5XCIpO1xyXG5jb25zdCB1dGlsc18xID0gcmVxdWlyZShcIi4vdXRpbHNcIik7XHJcbmV4cG9ydHMuZW50aXR5X2xpc3QgPSBbXTtcclxuZnVuY3Rpb24gaW5pdFN0YXRlKCkge1xyXG4gICAgZXhwb3J0cy50ZXN0X3V0aWwgPSB7XHJcbiAgICAgICAgZGVzY3JpYmUsXHJcbiAgICAgICAgaXQsXHJcbiAgICAgICAgYWZ0ZXJBbGwsXHJcbiAgICAgICAgYmVmb3JlQWxsLFxyXG4gICAgICAgIGFmdGVyRWFjaCxcclxuICAgICAgICBiZWZvcmVFYWNoLFxyXG4gICAgfTtcclxufVxyXG5leHBvcnRzLmluaXRTdGF0ZSA9IGluaXRTdGF0ZTtcclxuLyoqIOaJk+W8gFRlc3QgKi9cclxuZnVuY3Rpb24gcGFyc2VUZXN0KHJ1bl9mdW4pIHtcclxuICAgIGV4cG9ydHMuZW50aXR5X2xpc3QgPSBbXTtcclxuICAgIHRyeSB7XHJcbiAgICAgICAgcnVuX2Z1bihleHBvcnRzLnRlc3RfdXRpbCk7XHJcbiAgICB9XHJcbiAgICBjYXRjaCAoZSkge1xyXG4gICAgICAgIGNvbnNvbGUuZXJyb3IoYFRlc3RCdWlsZGVyOj5gLCBlLnN0YWNrID8gZS5zdGFjayA6IGUpO1xyXG4gICAgfVxyXG4gICAgcmV0dXJuIGV4cG9ydHMuZW50aXR5X2xpc3Q7XHJcbn1cclxuZXhwb3J0cy5wYXJzZVRlc3QgPSBwYXJzZVRlc3Q7XHJcbmZ1bmN0aW9uIGRlc2NyaWJlKG1zZywgZnVuKSB7XHJcbiAgICBjb25zdCBlbnRpdHkgPSBuZXcgdGVzdEVudGl0eV8xLlRlc3RFbnRpdHlDdG9yKG1zZywgZnVuKTtcclxuICAgIGV4cG9ydHMuZW50aXR5X2xpc3QucHVzaChlbnRpdHkpO1xyXG59XHJcbmZ1bmN0aW9uIGl0KG1zZywgZnVuKSB7XHJcbiAgICBleHBvcnRzLmN1cl90ZXN0X2VudGl0eS5pdGVtTGlzdC5wdXNoKHtcclxuICAgICAgICBtc2csXHJcbiAgICAgICAgZnVuLFxyXG4gICAgfSk7XHJcbn1cclxuZnVuY3Rpb24gYWZ0ZXJBbGwoZnVuKSB7XHJcbiAgICBleHBvcnRzLmN1cl90ZXN0X2VudGl0eS5hZnRlckFsbC5wdXNoKGZ1bik7XHJcbn1cclxuZnVuY3Rpb24gYmVmb3JlQWxsKGZ1bikge1xyXG4gICAgZXhwb3J0cy5jdXJfdGVzdF9lbnRpdHkuYmVmb3JlQWxsLnB1c2goZnVuKTtcclxufVxyXG5mdW5jdGlvbiBhZnRlckVhY2goZnVuKSB7XHJcbiAgICBleHBvcnRzLmN1cl90ZXN0X2VudGl0eS5hZnRlckVhY2gucHVzaChmdW4pO1xyXG59XHJcbmZ1bmN0aW9uIGJlZm9yZUVhY2goZnVuKSB7XHJcbiAgICBleHBvcnRzLmN1cl90ZXN0X2VudGl0eS5iZWZvcmVFYWNoLnB1c2goZnVuKTtcclxufVxyXG5hc3luYyBmdW5jdGlvbiBwYXJzZVRlc3RFbnRpdHkoZW50aXR5LCBwYXJhbXMgPSBbXSkge1xyXG4gICAgY29uc3QgeyBmdW4gfSA9IGVudGl0eTtcclxuICAgIGNvbnNvbGUuZ3JvdXAoYFRlc3RCdWlsZGVyOj5gLCBlbnRpdHkubXNnKTtcclxuICAgIGV4cG9ydHMuY3VyX3Rlc3RfZW50aXR5ID0gZW50aXR5O1xyXG4gICAgdHJ5IHtcclxuICAgICAgICBmdW4oLi4ucGFyYW1zKTtcclxuICAgIH1cclxuICAgIGNhdGNoIChlKSB7XHJcbiAgICAgICAgY29uc29sZS5lcnJvcihgVGVzdEJ1aWxkZXI6PmAsIGUuc3RhY2sgPyBlLnN0YWNrIDogZSk7XHJcbiAgICB9XHJcbiAgICBleHBvcnRzLmN1cl90ZXN0X2VudGl0eSA9IHVuZGVmaW5lZDtcclxuICAgIGF3YWl0IHJ1blRlc3RFbnRpdHkoZW50aXR5KTtcclxuICAgIGNvbnNvbGUuZ3JvdXBFbmQoKTtcclxufVxyXG5leHBvcnRzLnBhcnNlVGVzdEVudGl0eSA9IHBhcnNlVGVzdEVudGl0eTtcclxuYXN5bmMgZnVuY3Rpb24gcnVuVGVzdEVudGl0eShlbnRpdHksIHBhcmFtcykge1xyXG4gICAgLy8gdHNsaW50OmRpc2FibGUtbmV4dC1saW5lXHJcbiAgICBjb25zdCB7IGFmdGVyQWxsLCBhZnRlckVhY2gsIGJlZm9yZUFsbCwgYmVmb3JlRWFjaCwgaXRlbUxpc3QgfSA9IGVudGl0eTtcclxuICAgIGF3YWl0IHV0aWxzXzEuYXN5bmNSdW5UZXN0RnVuQXJyKGJlZm9yZUFsbCwgJ2NvbmN1cnJlbnQnKTtcclxuICAgIGZvciAoY29uc3QgaXRlbSBvZiBpdGVtTGlzdCkge1xyXG4gICAgICAgIGF3YWl0IHV0aWxzXzEuYXN5bmNSdW5UZXN0RnVuQXJyKGJlZm9yZUVhY2gsICdjb25jdXJyZW50Jyk7XHJcbiAgICAgICAgYXdhaXQgdXRpbHNfMS5hc3luY1J1blRlc3RGdW4oaXRlbS5mdW4pXHJcbiAgICAgICAgICAgIC50aGVuKCgpID0+IHtcclxuICAgICAgICAgICAgY29uc29sZS5sb2coYFRlc3RCdWlsZGVyOj5gLCAnc3VjY2Vzczo+JywgaXRlbS5tc2csICdzdWNjZXNzJyk7XHJcbiAgICAgICAgfSlcclxuICAgICAgICAgICAgLmNhdGNoKGVyciA9PiB7XHJcbiAgICAgICAgICAgIGNvbnNvbGUuZXJyb3IoYFRlc3RCdWlsZGVyOj5gLCAnZmFpbDo+JywgaXRlbS5tc2csICdmYWlsJyk7XHJcbiAgICAgICAgfSk7XHJcbiAgICAgICAgYXdhaXQgdXRpbHNfMS5hc3luY1J1blRlc3RGdW5BcnIoYWZ0ZXJFYWNoLCAnY29uY3VycmVudCcpO1xyXG4gICAgfVxyXG4gICAgYXdhaXQgdXRpbHNfMS5hc3luY1J1blRlc3RGdW5BcnIoYWZ0ZXJBbGwsICdjb25jdXJyZW50Jyk7XHJcbn1cclxuZXhwb3J0cy5ydW5UZXN0RW50aXR5ID0gcnVuVGVzdEVudGl0eTtcclxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./test/testBuilder/state.ts\n");
+
+/***/ }),
+
+/***/ "./test/testBuilder/testBuilder.ts":
+/*!*****************************************!*\
+  !*** ./test/testBuilder/testBuilder.ts ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst state_1 = __webpack_require__(/*! ./state */ \"./test/testBuilder/state.ts\");\r\nconst utils_1 = __webpack_require__(/*! ./utils */ \"./test/testBuilder/utils.ts\");\r\nclass TestBuilderCtor {\r\n    constructor(top_scope, default_config) {\r\n        this.top_scope = top_scope;\r\n        state_1.initState();\r\n        if (default_config) {\r\n            this.config = default_config;\r\n        }\r\n    }\r\n    init() {\r\n        const { config, top_scope } = this;\r\n        top_scope.init(config);\r\n        top_scope.parseTest();\r\n    }\r\n    findTest(scope) {\r\n        const { top_scope } = this;\r\n        const path_arr = scope.split('.');\r\n        const test_scope = utils_1.findTest(top_scope, path_arr);\r\n        if (!test_scope) {\r\n            console.error(`TestBuilder:>`, `cant find test for ${scope}`);\r\n        }\r\n        return test_scope;\r\n    }\r\n    runTest(scope, msg) {\r\n        const test_scope = this.findTest(scope);\r\n        if (!test_scope) {\r\n            return;\r\n        }\r\n        test_scope.runTest(msg);\r\n    }\r\n    enableTest(scope) {\r\n        const test_scope = this.findTest(scope);\r\n        if (!test_scope) {\r\n            return;\r\n        }\r\n        test_scope.open(true);\r\n    }\r\n    disableTest(scope) {\r\n        const test_scope = this.findTest(scope);\r\n        if (!test_scope) {\r\n            return;\r\n        }\r\n        test_scope.close(true);\r\n    }\r\n    enableDisableTest(enable_list, disable_list) {\r\n        for (const item of enable_list) {\r\n            this.enableTest(item);\r\n        }\r\n        for (const item of disable_list) {\r\n            this.disableTest(item);\r\n        }\r\n    }\r\n}\r\nexports.TestBuilderCtor = TestBuilderCtor;\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi90ZXN0L3Rlc3RCdWlsZGVyL3Rlc3RCdWlsZGVyLnRzPzY5NmYiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQWE7QUFDYiw4Q0FBOEMsY0FBYztBQUM1RCxnQkFBZ0IsbUJBQU8sQ0FBQyw0Q0FBUztBQUNqQyxnQkFBZ0IsbUJBQU8sQ0FBQyw0Q0FBUztBQUNqQztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxlQUFlLG9CQUFvQjtBQUNuQztBQUNBO0FBQ0E7QUFDQTtBQUNBLGVBQWUsWUFBWTtBQUMzQjtBQUNBO0FBQ0E7QUFDQSxpRUFBaUUsTUFBTTtBQUN2RTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsImZpbGUiOiIuL3Rlc3QvdGVzdEJ1aWxkZXIvdGVzdEJ1aWxkZXIudHMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJcInVzZSBzdHJpY3RcIjtcclxuT2JqZWN0LmRlZmluZVByb3BlcnR5KGV4cG9ydHMsIFwiX19lc01vZHVsZVwiLCB7IHZhbHVlOiB0cnVlIH0pO1xyXG5jb25zdCBzdGF0ZV8xID0gcmVxdWlyZShcIi4vc3RhdGVcIik7XHJcbmNvbnN0IHV0aWxzXzEgPSByZXF1aXJlKFwiLi91dGlsc1wiKTtcclxuY2xhc3MgVGVzdEJ1aWxkZXJDdG9yIHtcclxuICAgIGNvbnN0cnVjdG9yKHRvcF9zY29wZSwgZGVmYXVsdF9jb25maWcpIHtcclxuICAgICAgICB0aGlzLnRvcF9zY29wZSA9IHRvcF9zY29wZTtcclxuICAgICAgICBzdGF0ZV8xLmluaXRTdGF0ZSgpO1xyXG4gICAgICAgIGlmIChkZWZhdWx0X2NvbmZpZykge1xyXG4gICAgICAgICAgICB0aGlzLmNvbmZpZyA9IGRlZmF1bHRfY29uZmlnO1xyXG4gICAgICAgIH1cclxuICAgIH1cclxuICAgIGluaXQoKSB7XHJcbiAgICAgICAgY29uc3QgeyBjb25maWcsIHRvcF9zY29wZSB9ID0gdGhpcztcclxuICAgICAgICB0b3Bfc2NvcGUuaW5pdChjb25maWcpO1xyXG4gICAgICAgIHRvcF9zY29wZS5wYXJzZVRlc3QoKTtcclxuICAgIH1cclxuICAgIGZpbmRUZXN0KHNjb3BlKSB7XHJcbiAgICAgICAgY29uc3QgeyB0b3Bfc2NvcGUgfSA9IHRoaXM7XHJcbiAgICAgICAgY29uc3QgcGF0aF9hcnIgPSBzY29wZS5zcGxpdCgnLicpO1xyXG4gICAgICAgIGNvbnN0IHRlc3Rfc2NvcGUgPSB1dGlsc18xLmZpbmRUZXN0KHRvcF9zY29wZSwgcGF0aF9hcnIpO1xyXG4gICAgICAgIGlmICghdGVzdF9zY29wZSkge1xyXG4gICAgICAgICAgICBjb25zb2xlLmVycm9yKGBUZXN0QnVpbGRlcjo+YCwgYGNhbnQgZmluZCB0ZXN0IGZvciAke3Njb3BlfWApO1xyXG4gICAgICAgIH1cclxuICAgICAgICByZXR1cm4gdGVzdF9zY29wZTtcclxuICAgIH1cclxuICAgIHJ1blRlc3Qoc2NvcGUsIG1zZykge1xyXG4gICAgICAgIGNvbnN0IHRlc3Rfc2NvcGUgPSB0aGlzLmZpbmRUZXN0KHNjb3BlKTtcclxuICAgICAgICBpZiAoIXRlc3Rfc2NvcGUpIHtcclxuICAgICAgICAgICAgcmV0dXJuO1xyXG4gICAgICAgIH1cclxuICAgICAgICB0ZXN0X3Njb3BlLnJ1blRlc3QobXNnKTtcclxuICAgIH1cclxuICAgIGVuYWJsZVRlc3Qoc2NvcGUpIHtcclxuICAgICAgICBjb25zdCB0ZXN0X3Njb3BlID0gdGhpcy5maW5kVGVzdChzY29wZSk7XHJcbiAgICAgICAgaWYgKCF0ZXN0X3Njb3BlKSB7XHJcbiAgICAgICAgICAgIHJldHVybjtcclxuICAgICAgICB9XHJcbiAgICAgICAgdGVzdF9zY29wZS5vcGVuKHRydWUpO1xyXG4gICAgfVxyXG4gICAgZGlzYWJsZVRlc3Qoc2NvcGUpIHtcclxuICAgICAgICBjb25zdCB0ZXN0X3Njb3BlID0gdGhpcy5maW5kVGVzdChzY29wZSk7XHJcbiAgICAgICAgaWYgKCF0ZXN0X3Njb3BlKSB7XHJcbiAgICAgICAgICAgIHJldHVybjtcclxuICAgICAgICB9XHJcbiAgICAgICAgdGVzdF9zY29wZS5jbG9zZSh0cnVlKTtcclxuICAgIH1cclxuICAgIGVuYWJsZURpc2FibGVUZXN0KGVuYWJsZV9saXN0LCBkaXNhYmxlX2xpc3QpIHtcclxuICAgICAgICBmb3IgKGNvbnN0IGl0ZW0gb2YgZW5hYmxlX2xpc3QpIHtcclxuICAgICAgICAgICAgdGhpcy5lbmFibGVUZXN0KGl0ZW0pO1xyXG4gICAgICAgIH1cclxuICAgICAgICBmb3IgKGNvbnN0IGl0ZW0gb2YgZGlzYWJsZV9saXN0KSB7XHJcbiAgICAgICAgICAgIHRoaXMuZGlzYWJsZVRlc3QoaXRlbSk7XHJcbiAgICAgICAgfVxyXG4gICAgfVxyXG59XHJcbmV4cG9ydHMuVGVzdEJ1aWxkZXJDdG9yID0gVGVzdEJ1aWxkZXJDdG9yO1xyXG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./test/testBuilder/testBuilder.ts\n");
+
+/***/ }),
+
+/***/ "./test/testBuilder/testEntity.ts":
+/*!****************************************!*\
+  !*** ./test/testBuilder/testEntity.ts ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nclass TestEntityCtor {\r\n    constructor(msg, fun) {\r\n        this.children = [];\r\n        this.itemList = [];\r\n        this.afterAll = [];\r\n        this.beforeAll = [];\r\n        this.afterEach = [];\r\n        this.beforeEach = [];\r\n        this.msg = msg;\r\n        this.fun = fun;\r\n    }\r\n}\r\nexports.TestEntityCtor = TestEntityCtor;\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi90ZXN0L3Rlc3RCdWlsZGVyL3Rlc3RFbnRpdHkudHM/Mjk4ZCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBYTtBQUNiLDhDQUE4QyxjQUFjO0FBQzVEO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwiZmlsZSI6Ii4vdGVzdC90ZXN0QnVpbGRlci90ZXN0RW50aXR5LnRzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XHJcbk9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCBcIl9fZXNNb2R1bGVcIiwgeyB2YWx1ZTogdHJ1ZSB9KTtcclxuY2xhc3MgVGVzdEVudGl0eUN0b3Ige1xyXG4gICAgY29uc3RydWN0b3IobXNnLCBmdW4pIHtcclxuICAgICAgICB0aGlzLmNoaWxkcmVuID0gW107XHJcbiAgICAgICAgdGhpcy5pdGVtTGlzdCA9IFtdO1xyXG4gICAgICAgIHRoaXMuYWZ0ZXJBbGwgPSBbXTtcclxuICAgICAgICB0aGlzLmJlZm9yZUFsbCA9IFtdO1xyXG4gICAgICAgIHRoaXMuYWZ0ZXJFYWNoID0gW107XHJcbiAgICAgICAgdGhpcy5iZWZvcmVFYWNoID0gW107XHJcbiAgICAgICAgdGhpcy5tc2cgPSBtc2c7XHJcbiAgICAgICAgdGhpcy5mdW4gPSBmdW47XHJcbiAgICB9XHJcbn1cclxuZXhwb3J0cy5UZXN0RW50aXR5Q3RvciA9IFRlc3RFbnRpdHlDdG9yO1xyXG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./test/testBuilder/testEntity.ts\n");
+
+/***/ }),
+
+/***/ "./test/testBuilder/testScope.ts":
+/*!***************************************!*\
+  !*** ./test/testBuilder/testScope.ts ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst state_1 = __webpack_require__(/*! ./state */ \"./test/testBuilder/state.ts\");\r\nclass TestScopeCtor {\r\n    constructor(name, fun, config) {\r\n        this.status = 'normal';\r\n        this.children = [];\r\n        this.entity_list = [];\r\n        this.name = name;\r\n        this.raw_fun = fun;\r\n        this.config = config || {};\r\n    }\r\n    init(config) {\r\n        const { children } = this;\r\n        this.config = {\r\n            ...config,\r\n            ...this.config,\r\n        };\r\n        for (const item of children) {\r\n            item.init(this.config);\r\n        }\r\n    }\r\n    addChild(...children) {\r\n        this.children.push(...children);\r\n    }\r\n    parseTest() {\r\n        const { raw_fun, children, config } = this;\r\n        if (config.is_on) {\r\n            if (raw_fun) {\r\n                this.entity_list = state_1.parseTest(raw_fun);\r\n            }\r\n        }\r\n        for (const item of children) {\r\n            item.parseTest();\r\n        }\r\n    }\r\n    open(force = false) {\r\n        const { config } = this;\r\n        if (force) {\r\n            config.is_on = true;\r\n        }\r\n        if (config.is_on) {\r\n            return;\r\n        }\r\n        config.is_on = true;\r\n        this.parseTest();\r\n    }\r\n    close(force = false) {\r\n        if (force) {\r\n            this.config.is_on = false;\r\n            this.entity_list = [];\r\n        }\r\n    }\r\n    async runTest(msg, params) {\r\n        const { config } = this;\r\n        if (!config.is_on) {\r\n            console.warn(`TestBuilder:>`, `${this.name} is is_on=${this.config.is_on} `);\r\n            return;\r\n        }\r\n        console.group(`TestBuilder:>`, `${this.name}:>`);\r\n        await this.runTestEntityList(msg, params);\r\n        console.groupEnd();\r\n    }\r\n    async runTestEntityList(msg, params) {\r\n        const { entity_list } = this;\r\n        for (const entity of entity_list) {\r\n            /** 如果有msg直接运行那个msg 对应的 entity */\r\n            if (msg) {\r\n                if (entity.msg === msg) {\r\n                    state_1.parseTestEntity(entity, params);\r\n                }\r\n                else {\r\n                    continue;\r\n                }\r\n            }\r\n            else {\r\n                state_1.parseTestEntity(entity, params);\r\n            }\r\n        }\r\n    }\r\n}\r\nexports.TestScopeCtor = TestScopeCtor;\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi90ZXN0L3Rlc3RCdWlsZGVyL3Rlc3RTY29wZS50cz9kYTQ5Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFhO0FBQ2IsOENBQThDLGNBQWM7QUFDNUQsZ0JBQWdCLG1CQUFPLENBQUMsNENBQVM7QUFDakM7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxlQUFlLFdBQVc7QUFDMUI7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsZUFBZSw0QkFBNEI7QUFDM0M7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxlQUFlLFNBQVM7QUFDeEI7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxlQUFlLFNBQVM7QUFDeEI7QUFDQSw2Q0FBNkMsVUFBVSxZQUFZLGtCQUFrQjtBQUNyRjtBQUNBO0FBQ0EsMENBQTBDLFVBQVU7QUFDcEQ7QUFDQTtBQUNBO0FBQ0E7QUFDQSxlQUFlLGNBQWM7QUFDN0I7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsImZpbGUiOiIuL3Rlc3QvdGVzdEJ1aWxkZXIvdGVzdFNjb3BlLnRzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XHJcbk9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCBcIl9fZXNNb2R1bGVcIiwgeyB2YWx1ZTogdHJ1ZSB9KTtcclxuY29uc3Qgc3RhdGVfMSA9IHJlcXVpcmUoXCIuL3N0YXRlXCIpO1xyXG5jbGFzcyBUZXN0U2NvcGVDdG9yIHtcclxuICAgIGNvbnN0cnVjdG9yKG5hbWUsIGZ1biwgY29uZmlnKSB7XHJcbiAgICAgICAgdGhpcy5zdGF0dXMgPSAnbm9ybWFsJztcclxuICAgICAgICB0aGlzLmNoaWxkcmVuID0gW107XHJcbiAgICAgICAgdGhpcy5lbnRpdHlfbGlzdCA9IFtdO1xyXG4gICAgICAgIHRoaXMubmFtZSA9IG5hbWU7XHJcbiAgICAgICAgdGhpcy5yYXdfZnVuID0gZnVuO1xyXG4gICAgICAgIHRoaXMuY29uZmlnID0gY29uZmlnIHx8IHt9O1xyXG4gICAgfVxyXG4gICAgaW5pdChjb25maWcpIHtcclxuICAgICAgICBjb25zdCB7IGNoaWxkcmVuIH0gPSB0aGlzO1xyXG4gICAgICAgIHRoaXMuY29uZmlnID0ge1xyXG4gICAgICAgICAgICAuLi5jb25maWcsXHJcbiAgICAgICAgICAgIC4uLnRoaXMuY29uZmlnLFxyXG4gICAgICAgIH07XHJcbiAgICAgICAgZm9yIChjb25zdCBpdGVtIG9mIGNoaWxkcmVuKSB7XHJcbiAgICAgICAgICAgIGl0ZW0uaW5pdCh0aGlzLmNvbmZpZyk7XHJcbiAgICAgICAgfVxyXG4gICAgfVxyXG4gICAgYWRkQ2hpbGQoLi4uY2hpbGRyZW4pIHtcclxuICAgICAgICB0aGlzLmNoaWxkcmVuLnB1c2goLi4uY2hpbGRyZW4pO1xyXG4gICAgfVxyXG4gICAgcGFyc2VUZXN0KCkge1xyXG4gICAgICAgIGNvbnN0IHsgcmF3X2Z1biwgY2hpbGRyZW4sIGNvbmZpZyB9ID0gdGhpcztcclxuICAgICAgICBpZiAoY29uZmlnLmlzX29uKSB7XHJcbiAgICAgICAgICAgIGlmIChyYXdfZnVuKSB7XHJcbiAgICAgICAgICAgICAgICB0aGlzLmVudGl0eV9saXN0ID0gc3RhdGVfMS5wYXJzZVRlc3QocmF3X2Z1bik7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICB9XHJcbiAgICAgICAgZm9yIChjb25zdCBpdGVtIG9mIGNoaWxkcmVuKSB7XHJcbiAgICAgICAgICAgIGl0ZW0ucGFyc2VUZXN0KCk7XHJcbiAgICAgICAgfVxyXG4gICAgfVxyXG4gICAgb3Blbihmb3JjZSA9IGZhbHNlKSB7XHJcbiAgICAgICAgY29uc3QgeyBjb25maWcgfSA9IHRoaXM7XHJcbiAgICAgICAgaWYgKGZvcmNlKSB7XHJcbiAgICAgICAgICAgIGNvbmZpZy5pc19vbiA9IHRydWU7XHJcbiAgICAgICAgfVxyXG4gICAgICAgIGlmIChjb25maWcuaXNfb24pIHtcclxuICAgICAgICAgICAgcmV0dXJuO1xyXG4gICAgICAgIH1cclxuICAgICAgICBjb25maWcuaXNfb24gPSB0cnVlO1xyXG4gICAgICAgIHRoaXMucGFyc2VUZXN0KCk7XHJcbiAgICB9XHJcbiAgICBjbG9zZShmb3JjZSA9IGZhbHNlKSB7XHJcbiAgICAgICAgaWYgKGZvcmNlKSB7XHJcbiAgICAgICAgICAgIHRoaXMuY29uZmlnLmlzX29uID0gZmFsc2U7XHJcbiAgICAgICAgICAgIHRoaXMuZW50aXR5X2xpc3QgPSBbXTtcclxuICAgICAgICB9XHJcbiAgICB9XHJcbiAgICBhc3luYyBydW5UZXN0KG1zZywgcGFyYW1zKSB7XHJcbiAgICAgICAgY29uc3QgeyBjb25maWcgfSA9IHRoaXM7XHJcbiAgICAgICAgaWYgKCFjb25maWcuaXNfb24pIHtcclxuICAgICAgICAgICAgY29uc29sZS53YXJuKGBUZXN0QnVpbGRlcjo+YCwgYCR7dGhpcy5uYW1lfSBpcyBpc19vbj0ke3RoaXMuY29uZmlnLmlzX29ufSBgKTtcclxuICAgICAgICAgICAgcmV0dXJuO1xyXG4gICAgICAgIH1cclxuICAgICAgICBjb25zb2xlLmdyb3VwKGBUZXN0QnVpbGRlcjo+YCwgYCR7dGhpcy5uYW1lfTo+YCk7XHJcbiAgICAgICAgYXdhaXQgdGhpcy5ydW5UZXN0RW50aXR5TGlzdChtc2csIHBhcmFtcyk7XHJcbiAgICAgICAgY29uc29sZS5ncm91cEVuZCgpO1xyXG4gICAgfVxyXG4gICAgYXN5bmMgcnVuVGVzdEVudGl0eUxpc3QobXNnLCBwYXJhbXMpIHtcclxuICAgICAgICBjb25zdCB7IGVudGl0eV9saXN0IH0gPSB0aGlzO1xyXG4gICAgICAgIGZvciAoY29uc3QgZW50aXR5IG9mIGVudGl0eV9saXN0KSB7XHJcbiAgICAgICAgICAgIC8qKiDlpoLmnpzmnIltc2fnm7TmjqXov5DooYzpgqPkuKptc2cg5a+55bqU55qEIGVudGl0eSAqL1xyXG4gICAgICAgICAgICBpZiAobXNnKSB7XHJcbiAgICAgICAgICAgICAgICBpZiAoZW50aXR5Lm1zZyA9PT0gbXNnKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgc3RhdGVfMS5wYXJzZVRlc3RFbnRpdHkoZW50aXR5LCBwYXJhbXMpO1xyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgZWxzZSB7XHJcbiAgICAgICAgICAgICAgICAgICAgY29udGludWU7XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgZWxzZSB7XHJcbiAgICAgICAgICAgICAgICBzdGF0ZV8xLnBhcnNlVGVzdEVudGl0eShlbnRpdHksIHBhcmFtcyk7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICB9XHJcbiAgICB9XHJcbn1cclxuZXhwb3J0cy5UZXN0U2NvcGVDdG9yID0gVGVzdFNjb3BlQ3RvcjtcclxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./test/testBuilder/testScope.ts\n");
+
+/***/ }),
+
+/***/ "./test/testBuilder/utils.ts":
+/*!***********************************!*\
+  !*** ./test/testBuilder/utils.ts ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nfunction findTest(scope, path) {\r\n    const { children } = scope;\r\n    if (!path.length) {\r\n        return scope;\r\n    }\r\n    const cur_name = path.shift();\r\n    for (const item of children) {\r\n        if (item.name === cur_name) {\r\n            return findTest(item, path);\r\n        }\r\n    }\r\n}\r\nexports.findTest = findTest;\r\nfunction asyncRunTestFun(fun) {\r\n    return new Promise((resolve, reject) => {\r\n        try {\r\n            const result = fun();\r\n            if (result instanceof Promise) {\r\n                result.then(() => {\r\n                    resolve();\r\n                });\r\n            }\r\n            else {\r\n                resolve();\r\n            }\r\n        }\r\n        catch (err) {\r\n            reject(err);\r\n        }\r\n    });\r\n}\r\nexports.asyncRunTestFun = asyncRunTestFun;\r\nasync function asyncRunTestFunArr(fun, type) {\r\n    if (type === 'concurrent') {\r\n        const result = [];\r\n        for (const item of fun) {\r\n            result.push(asyncRunTestFun(item));\r\n        }\r\n        await Promise.all(result);\r\n        return;\r\n    }\r\n    for (const item of fun) {\r\n        await asyncRunTestFun(item);\r\n    }\r\n}\r\nexports.asyncRunTestFunArr = asyncRunTestFunArr;\r\nfunction noImplement() {\r\n    throw new Error('no implement');\r\n}\r\nexports.noImplement = noImplement;\r\nfunction newError(msg) {\r\n    throw new Error(msg);\r\n}\r\nexports.newError = newError;\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi90ZXN0L3Rlc3RCdWlsZGVyL3V0aWxzLnRzPzg4MmIiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQWE7QUFDYiw4Q0FBOEMsY0FBYztBQUM1RDtBQUNBLFdBQVcsV0FBVztBQUN0QjtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxpQkFBaUI7QUFDakI7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJmaWxlIjoiLi90ZXN0L3Rlc3RCdWlsZGVyL3V0aWxzLnRzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XHJcbk9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCBcIl9fZXNNb2R1bGVcIiwgeyB2YWx1ZTogdHJ1ZSB9KTtcclxuZnVuY3Rpb24gZmluZFRlc3Qoc2NvcGUsIHBhdGgpIHtcclxuICAgIGNvbnN0IHsgY2hpbGRyZW4gfSA9IHNjb3BlO1xyXG4gICAgaWYgKCFwYXRoLmxlbmd0aCkge1xyXG4gICAgICAgIHJldHVybiBzY29wZTtcclxuICAgIH1cclxuICAgIGNvbnN0IGN1cl9uYW1lID0gcGF0aC5zaGlmdCgpO1xyXG4gICAgZm9yIChjb25zdCBpdGVtIG9mIGNoaWxkcmVuKSB7XHJcbiAgICAgICAgaWYgKGl0ZW0ubmFtZSA9PT0gY3VyX25hbWUpIHtcclxuICAgICAgICAgICAgcmV0dXJuIGZpbmRUZXN0KGl0ZW0sIHBhdGgpO1xyXG4gICAgICAgIH1cclxuICAgIH1cclxufVxyXG5leHBvcnRzLmZpbmRUZXN0ID0gZmluZFRlc3Q7XHJcbmZ1bmN0aW9uIGFzeW5jUnVuVGVzdEZ1bihmdW4pIHtcclxuICAgIHJldHVybiBuZXcgUHJvbWlzZSgocmVzb2x2ZSwgcmVqZWN0KSA9PiB7XHJcbiAgICAgICAgdHJ5IHtcclxuICAgICAgICAgICAgY29uc3QgcmVzdWx0ID0gZnVuKCk7XHJcbiAgICAgICAgICAgIGlmIChyZXN1bHQgaW5zdGFuY2VvZiBQcm9taXNlKSB7XHJcbiAgICAgICAgICAgICAgICByZXN1bHQudGhlbigoKSA9PiB7XHJcbiAgICAgICAgICAgICAgICAgICAgcmVzb2x2ZSgpO1xyXG4gICAgICAgICAgICAgICAgfSk7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgZWxzZSB7XHJcbiAgICAgICAgICAgICAgICByZXNvbHZlKCk7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICB9XHJcbiAgICAgICAgY2F0Y2ggKGVycikge1xyXG4gICAgICAgICAgICByZWplY3QoZXJyKTtcclxuICAgICAgICB9XHJcbiAgICB9KTtcclxufVxyXG5leHBvcnRzLmFzeW5jUnVuVGVzdEZ1biA9IGFzeW5jUnVuVGVzdEZ1bjtcclxuYXN5bmMgZnVuY3Rpb24gYXN5bmNSdW5UZXN0RnVuQXJyKGZ1biwgdHlwZSkge1xyXG4gICAgaWYgKHR5cGUgPT09ICdjb25jdXJyZW50Jykge1xyXG4gICAgICAgIGNvbnN0IHJlc3VsdCA9IFtdO1xyXG4gICAgICAgIGZvciAoY29uc3QgaXRlbSBvZiBmdW4pIHtcclxuICAgICAgICAgICAgcmVzdWx0LnB1c2goYXN5bmNSdW5UZXN0RnVuKGl0ZW0pKTtcclxuICAgICAgICB9XHJcbiAgICAgICAgYXdhaXQgUHJvbWlzZS5hbGwocmVzdWx0KTtcclxuICAgICAgICByZXR1cm47XHJcbiAgICB9XHJcbiAgICBmb3IgKGNvbnN0IGl0ZW0gb2YgZnVuKSB7XHJcbiAgICAgICAgYXdhaXQgYXN5bmNSdW5UZXN0RnVuKGl0ZW0pO1xyXG4gICAgfVxyXG59XHJcbmV4cG9ydHMuYXN5bmNSdW5UZXN0RnVuQXJyID0gYXN5bmNSdW5UZXN0RnVuQXJyO1xyXG5mdW5jdGlvbiBub0ltcGxlbWVudCgpIHtcclxuICAgIHRocm93IG5ldyBFcnJvcignbm8gaW1wbGVtZW50Jyk7XHJcbn1cclxuZXhwb3J0cy5ub0ltcGxlbWVudCA9IG5vSW1wbGVtZW50O1xyXG5mdW5jdGlvbiBuZXdFcnJvcihtc2cpIHtcclxuICAgIHRocm93IG5ldyBFcnJvcihtc2cpO1xyXG59XHJcbmV4cG9ydHMubmV3RXJyb3IgPSBuZXdFcnJvcjtcclxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./test/testBuilder/utils.ts\n");
+
+/***/ }),
+
+/***/ "./test/testMap.ts":
+/*!*************************!*\
+  !*** ./test/testMap.ts ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst testBuilder_1 = __webpack_require__(/*! testBuilder */ \"./test/testBuilder/index.ts\");\r\nconst testBuilder_2 = __webpack_require__(/*! testBuilder/testBuilder */ \"./test/testBuilder/testBuilder.ts\");\r\nconst utils_1 = __webpack_require__(/*! utils/utils */ \"./test/utils/utils.ts\");\r\nconst testScope = new testBuilder_1.Test(\"top\");\r\ntestScope.addChild();\r\nconst testBuilder = new testBuilder_2.TestBuilderCtor(testScope, { is_on: true });\r\ntestBuilder.enableDisableTest(utils_1.getTestEnable(), utils_1.getTestIgnore());\r\ntestBuilder.init();\r\nexports.testMap = testBuilder_1.mapTest(testBuilder.top_scope);\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi90ZXN0L3Rlc3RNYXAudHM/OGJhMCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBYTtBQUNiLDhDQUE4QyxjQUFjO0FBQzVELHNCQUFzQixtQkFBTyxDQUFDLGdEQUFhO0FBQzNDLHNCQUFzQixtQkFBTyxDQUFDLGtFQUF5QjtBQUN2RCxnQkFBZ0IsbUJBQU8sQ0FBQywwQ0FBYTtBQUNyQztBQUNBO0FBQ0Esa0VBQWtFLGNBQWM7QUFDaEY7QUFDQTtBQUNBIiwiZmlsZSI6Ii4vdGVzdC90ZXN0TWFwLnRzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XHJcbk9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCBcIl9fZXNNb2R1bGVcIiwgeyB2YWx1ZTogdHJ1ZSB9KTtcclxuY29uc3QgdGVzdEJ1aWxkZXJfMSA9IHJlcXVpcmUoXCJ0ZXN0QnVpbGRlclwiKTtcclxuY29uc3QgdGVzdEJ1aWxkZXJfMiA9IHJlcXVpcmUoXCJ0ZXN0QnVpbGRlci90ZXN0QnVpbGRlclwiKTtcclxuY29uc3QgdXRpbHNfMSA9IHJlcXVpcmUoXCJ1dGlscy91dGlsc1wiKTtcclxuY29uc3QgdGVzdFNjb3BlID0gbmV3IHRlc3RCdWlsZGVyXzEuVGVzdChcInRvcFwiKTtcclxudGVzdFNjb3BlLmFkZENoaWxkKCk7XHJcbmNvbnN0IHRlc3RCdWlsZGVyID0gbmV3IHRlc3RCdWlsZGVyXzIuVGVzdEJ1aWxkZXJDdG9yKHRlc3RTY29wZSwgeyBpc19vbjogdHJ1ZSB9KTtcclxudGVzdEJ1aWxkZXIuZW5hYmxlRGlzYWJsZVRlc3QodXRpbHNfMS5nZXRUZXN0RW5hYmxlKCksIHV0aWxzXzEuZ2V0VGVzdElnbm9yZSgpKTtcclxudGVzdEJ1aWxkZXIuaW5pdCgpO1xyXG5leHBvcnRzLnRlc3RNYXAgPSB0ZXN0QnVpbGRlcl8xLm1hcFRlc3QodGVzdEJ1aWxkZXIudG9wX3Njb3BlKTtcclxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./test/testMap.ts\n");
+
+/***/ }),
+
+/***/ "./test/utils/utils.ts":
+/*!*****************************!*\
+  !*** ./test/utils/utils.ts ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nfunction sleep(time) {\r\n    return new Promise((resolve, reject) => {\r\n        setTimeout(() => {\r\n            resolve();\r\n        }, time * 1000);\r\n    });\r\n}\r\nexports.sleep = sleep;\r\nfunction nameMap(path, end_obj, obj) {\r\n    if (typeof path === \"string\") {\r\n        path = path.split(\".\");\r\n    }\r\n    if (!obj) {\r\n        obj = window;\r\n    }\r\n    const cur_path = path.shift();\r\n    if (path.length === 0) {\r\n        obj[cur_path] = end_obj;\r\n        return;\r\n    }\r\n    if (!obj[cur_path]) {\r\n        obj[cur_path] = {};\r\n    }\r\n    nameMap(path, end_obj, obj[cur_path]);\r\n}\r\nexports.nameMap = nameMap;\r\nfunction injectWindow(obj) {\r\n    for (const key in obj) {\r\n        if (!obj.hasOwnProperty(key)) {\r\n            continue;\r\n        }\r\n        nameMap(key, obj[key]);\r\n    }\r\n}\r\nexports.injectWindow = injectWindow;\r\nlet test_ignore_arr = [];\r\n/** 测试是否需要跳过 */\r\nfunction getTestIgnore() {\r\n    if (!test_ignore_arr.length) {\r\n        const test_str = getUrlVars(\"test_ignore\");\r\n        if (!test_str) {\r\n            return test_ignore_arr;\r\n        }\r\n        test_ignore_arr = test_str.split(\",\");\r\n    }\r\n    return test_ignore_arr;\r\n}\r\nexports.getTestIgnore = getTestIgnore;\r\nlet test_enable_arr = [];\r\n/** 测试开启 */\r\nfunction getTestEnable() {\r\n    if (!test_enable_arr.length) {\r\n        const test_str = getUrlVars(\"test_enable\");\r\n        if (!test_str) {\r\n            return test_enable_arr;\r\n        }\r\n        test_enable_arr = test_str.split(\",\");\r\n    }\r\n    return test_enable_arr;\r\n}\r\nexports.getTestEnable = getTestEnable;\r\nfunction getUrlVars(name) {\r\n    var vars = {};\r\n    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) => (vars[key] = value));\r\n    return vars[name];\r\n}\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi90ZXN0L3V0aWxzL3V0aWxzLnRzPzM3YmMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQWE7QUFDYiw4Q0FBOEMsY0FBYztBQUM1RDtBQUNBO0FBQ0E7QUFDQTtBQUNBLFNBQVM7QUFDVCxLQUFLO0FBQ0w7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwiZmlsZSI6Ii4vdGVzdC91dGlscy91dGlscy50cy5qcyIsInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHN0cmljdFwiO1xyXG5PYmplY3QuZGVmaW5lUHJvcGVydHkoZXhwb3J0cywgXCJfX2VzTW9kdWxlXCIsIHsgdmFsdWU6IHRydWUgfSk7XHJcbmZ1bmN0aW9uIHNsZWVwKHRpbWUpIHtcclxuICAgIHJldHVybiBuZXcgUHJvbWlzZSgocmVzb2x2ZSwgcmVqZWN0KSA9PiB7XHJcbiAgICAgICAgc2V0VGltZW91dCgoKSA9PiB7XHJcbiAgICAgICAgICAgIHJlc29sdmUoKTtcclxuICAgICAgICB9LCB0aW1lICogMTAwMCk7XHJcbiAgICB9KTtcclxufVxyXG5leHBvcnRzLnNsZWVwID0gc2xlZXA7XHJcbmZ1bmN0aW9uIG5hbWVNYXAocGF0aCwgZW5kX29iaiwgb2JqKSB7XHJcbiAgICBpZiAodHlwZW9mIHBhdGggPT09IFwic3RyaW5nXCIpIHtcclxuICAgICAgICBwYXRoID0gcGF0aC5zcGxpdChcIi5cIik7XHJcbiAgICB9XHJcbiAgICBpZiAoIW9iaikge1xyXG4gICAgICAgIG9iaiA9IHdpbmRvdztcclxuICAgIH1cclxuICAgIGNvbnN0IGN1cl9wYXRoID0gcGF0aC5zaGlmdCgpO1xyXG4gICAgaWYgKHBhdGgubGVuZ3RoID09PSAwKSB7XHJcbiAgICAgICAgb2JqW2N1cl9wYXRoXSA9IGVuZF9vYmo7XHJcbiAgICAgICAgcmV0dXJuO1xyXG4gICAgfVxyXG4gICAgaWYgKCFvYmpbY3VyX3BhdGhdKSB7XHJcbiAgICAgICAgb2JqW2N1cl9wYXRoXSA9IHt9O1xyXG4gICAgfVxyXG4gICAgbmFtZU1hcChwYXRoLCBlbmRfb2JqLCBvYmpbY3VyX3BhdGhdKTtcclxufVxyXG5leHBvcnRzLm5hbWVNYXAgPSBuYW1lTWFwO1xyXG5mdW5jdGlvbiBpbmplY3RXaW5kb3cob2JqKSB7XHJcbiAgICBmb3IgKGNvbnN0IGtleSBpbiBvYmopIHtcclxuICAgICAgICBpZiAoIW9iai5oYXNPd25Qcm9wZXJ0eShrZXkpKSB7XHJcbiAgICAgICAgICAgIGNvbnRpbnVlO1xyXG4gICAgICAgIH1cclxuICAgICAgICBuYW1lTWFwKGtleSwgb2JqW2tleV0pO1xyXG4gICAgfVxyXG59XHJcbmV4cG9ydHMuaW5qZWN0V2luZG93ID0gaW5qZWN0V2luZG93O1xyXG5sZXQgdGVzdF9pZ25vcmVfYXJyID0gW107XHJcbi8qKiDmtYvor5XmmK/lkKbpnIDopoHot7Pov4cgKi9cclxuZnVuY3Rpb24gZ2V0VGVzdElnbm9yZSgpIHtcclxuICAgIGlmICghdGVzdF9pZ25vcmVfYXJyLmxlbmd0aCkge1xyXG4gICAgICAgIGNvbnN0IHRlc3Rfc3RyID0gZ2V0VXJsVmFycyhcInRlc3RfaWdub3JlXCIpO1xyXG4gICAgICAgIGlmICghdGVzdF9zdHIpIHtcclxuICAgICAgICAgICAgcmV0dXJuIHRlc3RfaWdub3JlX2FycjtcclxuICAgICAgICB9XHJcbiAgICAgICAgdGVzdF9pZ25vcmVfYXJyID0gdGVzdF9zdHIuc3BsaXQoXCIsXCIpO1xyXG4gICAgfVxyXG4gICAgcmV0dXJuIHRlc3RfaWdub3JlX2FycjtcclxufVxyXG5leHBvcnRzLmdldFRlc3RJZ25vcmUgPSBnZXRUZXN0SWdub3JlO1xyXG5sZXQgdGVzdF9lbmFibGVfYXJyID0gW107XHJcbi8qKiDmtYvor5XlvIDlkK8gKi9cclxuZnVuY3Rpb24gZ2V0VGVzdEVuYWJsZSgpIHtcclxuICAgIGlmICghdGVzdF9lbmFibGVfYXJyLmxlbmd0aCkge1xyXG4gICAgICAgIGNvbnN0IHRlc3Rfc3RyID0gZ2V0VXJsVmFycyhcInRlc3RfZW5hYmxlXCIpO1xyXG4gICAgICAgIGlmICghdGVzdF9zdHIpIHtcclxuICAgICAgICAgICAgcmV0dXJuIHRlc3RfZW5hYmxlX2FycjtcclxuICAgICAgICB9XHJcbiAgICAgICAgdGVzdF9lbmFibGVfYXJyID0gdGVzdF9zdHIuc3BsaXQoXCIsXCIpO1xyXG4gICAgfVxyXG4gICAgcmV0dXJuIHRlc3RfZW5hYmxlX2FycjtcclxufVxyXG5leHBvcnRzLmdldFRlc3RFbmFibGUgPSBnZXRUZXN0RW5hYmxlO1xyXG5mdW5jdGlvbiBnZXRVcmxWYXJzKG5hbWUpIHtcclxuICAgIHZhciB2YXJzID0ge307XHJcbiAgICB3aW5kb3cubG9jYXRpb24uaHJlZi5yZXBsYWNlKC9bPyZdKyhbXj0mXSspPShbXiZdKikvZ2ksIChtLCBrZXksIHZhbHVlKSA9PiAodmFyc1trZXldID0gdmFsdWUpKTtcclxuICAgIHJldHVybiB2YXJzW25hbWVdO1xyXG59XHJcbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./test/utils/utils.ts\n");
+
+/***/ }),
+
+/***/ 0:
+/*!****************************!*\
+  !*** multi ./test/test.ts ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! ./test/test.ts */"./test/test.ts");
+
+
+/***/ })
+
+/******/ });

@@ -1,3 +1,11 @@
+## 2019-12-31 16:20:22
+
+- @todo 添加自动化测试脚本
+
+- @todo ui 改变 没有自动刷新
+
+* @ques tsconfig references
+
 ## 2019-12-25 12:39:03
 
 -@todo 使用 express 直接在 index.html 中注入 js 而不是用 tampermonkey

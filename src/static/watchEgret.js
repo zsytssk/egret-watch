@@ -1,5 +1,6 @@
-const socket_js_url = "http://localhost:8888/socket.io.js";
-const socket_io_url = "http://localhost:8889";
+const socket_js_url = "socket.io.js";
+const socket_io_url = `${location.protocol}//${location.hostname}:8889`;
+
 async function main() {
   await loadWatchEgretScript(socket_js_url);
   connectServer(() => {

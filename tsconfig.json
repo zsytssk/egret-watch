@@ -1,23 +1,23 @@
 {
-  "compilerOptions": {
-    "experimentalDecorators": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "skipDefaultLibCheck": true,
-    "skipLibCheck": true,
-    "sourceMap": false,
-    "target": "esnext",
-    "watch": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "baseUrl": "./",
-    "paths": {
-      "*": ["node_modules/*", "src/*", "test/*"]
-    }
-  },
-  "references": [{ "path": "../../job/hhgzmj" }],
-  "include": ["src", "test", "D:\\zsytssk\\job\\hhgzmj"],
-  "exclude": ["node_modules"]
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
+        "sourceMap": false,
+        "target": "esnext",
+        "watch": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "esModuleInterop": true,
+        "strict": true,
+        "baseUrl": "./",
+        "paths": {
+            "*": ["node_modules/*", "src/*", "test/*"]
+        }
+    },
+    "references": [{ "path": "../../job/hhgzmj" }],
+    "include": ["src", "test", "D:\\zsytssk\\job\\hhgzmj"],
+    "exclude": ["node_modules"]
 }

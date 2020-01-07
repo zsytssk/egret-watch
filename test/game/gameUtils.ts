@@ -6,6 +6,12 @@ export function getGameModel() {
 export function getGameView() {
     return App.ViewManager.getView(ViewConst.Game) as gdmj.GameView;
 }
+export function getFrontCard() {
+    return getGameView().getFrontHandCardView();
+}
+export function getFrontHuCard() {
+    return getGameView()['huCardView'].frontHuPaiView['riverCardList'];
+}
 export function getUserHandCard() {
     const gameModel = getGameModel();
     if (gameModel == null || gameModel.homeInfo == null) {
@@ -18,6 +24,10 @@ export function getUserHandCard() {
 export function getMenInfo() {
     const gameModel = getGameModel();
     return gameModel.$menInfo;
+}
+export function playEndTip(type: YakuType, isDouble: boolean) {
+    const gameView = getGameView();
+    return gameView.gameAniView.playEndTip(type, isDouble);
 }
 export function getRoomConfig() {
     const gameModel = getGameModel();
@@ -39,6 +49,16 @@ export function doPutdown(index: number) {
     // doPutdown
 }
 
+export function getGameController() {
+    return App.ControllerManager.getController(
+        ControllerConst.Game,
+    ) as gdmj.GameController;
+}
+
+export function getShareStr() {
+    return getGameController()['controllerCompt'].getShareStr();
+}
+
 export const gameUtils = {
     getUserHandCard,
     getGameModel,
@@ -46,4 +66,9 @@ export const gameUtils = {
     getMenInfo,
     doPutdown,
     getRoomConfig,
+    getFrontCard,
+    getFrontHuCard,
+    playEndTip,
+    getGameController,
+    getShareStr,
 };

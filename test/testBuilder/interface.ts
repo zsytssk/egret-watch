@@ -37,13 +37,9 @@ export type TestScopeFun = (runner: TestUtil) => void | Promise<void>;
 export interface TestUtil {
     describe(msg: string, test_fun: TestFun): void;
     it(msg: string, test_fun: TestFun): void;
-    afterAll(fun: TestFun): void;
-    beforeAll(fun: TestFun): void;
-    afterEach(fun: TestFun): void;
-    beforeEach(fun: TestFun): void;
 }
 
-export type TestFun = (...params: any[]) => void | Promise<void>;
+export type TestFun = (...params: any[]) => any | Promise<any>;
 export type TestItem = {
     msg: string;
     fun: TestFun;
@@ -52,9 +48,5 @@ export interface TestEntity {
     msg: string;
     fun: TestFun;
     children: TestEntity[];
-    afterAll: TestFun[];
-    beforeAll: TestFun[];
-    afterEach: TestFun[];
-    beforeEach: TestFun[];
     itemList: TestItem[];
 }

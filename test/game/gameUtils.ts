@@ -48,15 +48,41 @@ export function doPutdown(index: number) {
     gameView.handCardViewMap[1].doPutdown(item.Sid as number);
     // doPutdown
 }
+/** 复盘进去 而且游戏已经开始 */
+export function openResult(msg: any) {
+    App.WindowMgr.open(
+        WindowConst.ZjmjRoundResult,
+        {
+            Bean_Desk_GZMJ_RoundItemInfo: msg,
+        },
+        true,
+    );
+}
 
 export function getGameController() {
     return App.ControllerManager.getController(
         ControllerConst.Game,
     ) as gdmj.GameController;
 }
+export function showBigWin() {
+    egret.MainContext.instance.stage.addEventListener(
+        egret.TouchEvent.TOUCH_BEGIN,
+        () => {
+            if (!App.WindowMgr.isShow(WindowConst.BigWinShareView)) {
+                App.WindowMgr.open(WindowConst.BigWinShareView, {
+                    condition: 1111,
+                });
+            }
+        },
+        null,
+    );
+}
 
 export function getShareStr() {
     return getGameController()['controllerCompt'].getShareStr();
+}
+export function getUid() {
+    return gdmj.GameContext.uid;
 }
 
 export const gameUtils = {
@@ -71,4 +97,6 @@ export const gameUtils = {
     playEndTip,
     getGameController,
     getShareStr,
+    openResult,
+    getUid,
 };

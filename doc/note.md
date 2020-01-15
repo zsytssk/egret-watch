@@ -1,4 +1,12 @@
+- @ques bug 结算的 bug 需要 获取用户的数据
+  - model.homeInfo.ownerUid
+  - 更新用户的是 homeType
+
 ## 2020-01-07 10:07:50
+
+- @ques 手型添加 简单的方法
+
+  - 可以创建多个
 
 - @todo 压缩文件
   json 文件要不要处理

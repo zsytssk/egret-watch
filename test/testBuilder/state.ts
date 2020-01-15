@@ -1,6 +1,5 @@
 import { TestEntity, TestFun, TestScopeFun, TestUtil } from './interface';
 import { TestEntityCtor } from './testEntity';
-import { asyncRunTestFun, asyncRunTestFunArr } from './utils';
 
 export let entity_list: TestEntity[] = [];
 export let test_util: TestUtil;
@@ -10,10 +9,6 @@ export function initState() {
     test_util = {
         describe,
         it,
-        afterAll,
-        beforeAll,
-        afterEach,
-        beforeEach,
     };
 }
 
@@ -38,18 +33,6 @@ function it(msg: string, fun: TestFun) {
         fun,
     });
 }
-function afterAll(fun: TestFun) {
-    cur_test_entity.afterAll.push(fun);
-}
-function beforeAll(fun: TestFun) {
-    cur_test_entity.beforeAll.push(fun);
-}
-function afterEach(fun: TestFun) {
-    cur_test_entity.afterEach.push(fun);
-}
-function beforeEach(fun: TestFun) {
-    cur_test_entity.beforeEach.push(fun);
-}
 
 export async function parseTestEntity(entity: TestEntity, params: any[] = []) {
     const { fun } = entity;
@@ -57,29 +40,8 @@ export async function parseTestEntity(entity: TestEntity, params: any[] = []) {
     console.group(`TestBuilder:>`, entity.msg);
     cur_test_entity = entity;
     try {
-        fun(...params);
+        return fun(...params);
     } catch (e) {
         console.error(`TestBuilder:>`, e.stack ? e.stack : e);
     }
-
-    cur_test_entity = undefined;
-    await runTestEntity(entity);
-    console.groupEnd();
-}
-export async function runTestEntity(entity: TestEntity, params?: any[]) {
-    // tslint:disable-next-line
-    const { afterAll, afterEach, beforeAll, beforeEach, itemList } = entity;
-    await asyncRunTestFunArr(beforeAll, 'concurrent');
-    for (const item of itemList) {
-        await asyncRunTestFunArr(beforeEach, 'concurrent');
-        await asyncRunTestFun(item.fun)
-            .then(() => {
-                console.log(`TestBuilder:>`, 'success:>', item.msg, 'success');
-            })
-            .catch(err => {
-                console.error(`TestBuilder:>`, 'fail:>', item.msg, 'fail');
-            });
-        await asyncRunTestFunArr(afterEach, 'concurrent');
-    }
-    await asyncRunTestFunArr(afterAll, 'concurrent');
 }

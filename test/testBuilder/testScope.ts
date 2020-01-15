@@ -73,8 +73,10 @@ export class TestScopeCtor implements TestScope {
             return;
         }
         console.group(`TestBuilder:>`, `${this.name}:>`);
-        await this.runTestEntityList(msg, params);
-        console.groupEnd();
+        return await this.runTestEntityList(msg, params).then(data => {
+            console.groupEnd();
+            return data;
+        });
     }
     public async runTestEntityList(msg?: string, params?: any[]) {
         const { entity_list } = this;
@@ -82,12 +84,8 @@ export class TestScopeCtor implements TestScope {
             /** 如果有msg直接运行那个msg 对应的 entity */
             if (msg) {
                 if (entity.msg === msg) {
-                    parseTestEntity(entity, params);
-                } else {
-                    continue;
+                    return parseTestEntity(entity, params);
                 }
-            } else {
-                parseTestEntity(entity, params);
             }
         }
     }

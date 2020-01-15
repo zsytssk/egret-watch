@@ -3,7 +3,7 @@ import { initState } from './state';
 import { findTest } from './utils';
 
 export class TestBuilderCtor implements TestBuilder {
-    private config: TestConfig;
+    private config = {} as TestConfig;
     public top_scope: TestScope;
     constructor(top_scope: TestScope, default_config?: TestConfig) {
         this.top_scope = top_scope;

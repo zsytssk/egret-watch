@@ -12,6 +12,11 @@ export function watchStageClick() {
         null,
     );
 }
+export function showImg(url: string) {
+    const bit = new eui.Image();
+    bit.source = url;
+    getStage().addChild(bit);
+}
 export function clipBroad(item: egret.DisplayObject) {
     const texture: egret.RenderTexture = new egret.RenderTexture();
     texture.drawToTexture(item);

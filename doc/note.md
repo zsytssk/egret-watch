@@ -1,3 +1,8 @@
+- @ques 能不能加一个 最后成功开局打点
+  - 在加入房间中监听开局成功
+
+## 2020-01-19 10:06:22
+
 - @ques bug 结算的 bug 需要 获取用户的数据
   - model.homeInfo.ownerUid
   - 更新用户的是 homeType

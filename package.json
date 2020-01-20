@@ -1,33 +1,33 @@
 {
-  "name": "watch-egret",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "webpack-dev": "webpack --env=DEV --mode development",
-    "run-watch-egret:hhgzmj": "ts-node --files src/main.ts D:/zsytssk/job/hhgzmj",
-    "run-watch-egret:hhgzmj_copy": "ts-node --files src/main.ts D:/zsytssk/job/hhgzmj_copy"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@types/express": "^4.17.2",
-    "@types/socket.io": "^2.1.4",
-    "cheerio": "^1.0.0-rc.3",
-    "express": "^4.17.1",
-    "node-watch": "^0.6.3",
-    "rxjs": "^6.5.3",
-    "socket.io": "^2.3.0",
-    "@types/node": "^12.7.12",
-    "ts-node": "^8.1.0",
-    "typescript": "^3.7.2",
-    "ts-loader": "^6.0.4"
-  },
-  "devDependencies": {
-    "@types/cheerio": "^0.22.15",
-    "webpack": "^4.11.1",
-    "webpack-cli": "^3.0.2",
-    "webpack-dev-server": "^3.1.4"
-  }
+    "name": "watch-egret",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "webpack-dev": "webpack --env=DEV --mode development",
+        "run-watch-egret:hhgzmj": "ts-node --files src/main.ts D:/zsytssk/job/hhgzmj",
+        "run-watch-egret:hhgzmj_copy": "ts-node --files src/main.ts D:/zsytssk/job/hhgzmj_copy"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/express": "^4.17.2",
+        "@types/socket.io": "^2.1.4",
+        "cheerio": "^1.0.0-rc.3",
+        "express": "^4.17.1",
+        "node-watch": "^0.6.3",
+        "rxjs": "^6.5.3",
+        "socket.io": "^2.3.0",
+        "@types/node": "^12.7.12",
+        "ts-node": "^8.1.0",
+        "typescript": "^3.7.2",
+        "ts-loader": "^6.2.1"
+    },
+    "devDependencies": {
+        "@types/cheerio": "^0.22.15",
+        "webpack": "^4.11.1",
+        "webpack-cli": "^3.0.2",
+        "webpack-dev-server": "^3.1.4"
+    }
 }

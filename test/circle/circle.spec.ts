@@ -25,4 +25,26 @@ export const circle_test = new Test('circle', runner => {
 
         console.log(`test:>`, circle_record);
     });
+
+    runner.describe('circle_apply_list', async () => {
+        await RES.loadGroup('baseview');
+
+        const stage = App.StageUtils.getStage();
+        const circle_apply_list = new gdmj.CircleApplyList();
+        stage.addChild(circle_apply_list);
+        circle_apply_list.initUI();
+        circle_apply_list.x = (stage.width - circle_apply_list.width) / 2;
+        circle_apply_list.y = (stage.height - circle_apply_list.height) / 2;
+
+        const { btn_close } = circle_apply_list;
+        btn_close.once(
+            egret.TouchEvent.TOUCH_TAP,
+            () => {
+                stage.removeChild(circle_apply_list);
+            },
+            circle_apply_list,
+        );
+
+        console.log(`test:>`, circle_apply_list);
+    });
 });

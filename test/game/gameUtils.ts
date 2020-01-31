@@ -6,6 +6,9 @@ export function getGameModel() {
 export function getGameView() {
     return App.ViewManager.getView(ViewConst.Game) as gdmj.GameView;
 }
+export function getGameUIView() {
+    return App.ViewManager.getView(ViewConst.GameUI) as gdmj.GameUIView;
+}
 export function getFrontCard() {
     return getGameView().getFrontHandCardView();
 }
@@ -89,6 +92,7 @@ export const gameUtils = {
     getUserHandCard,
     getGameModel,
     getGameView,
+    getGameUIView,
     getMenInfo,
     doPutdown,
     getRoomConfig,

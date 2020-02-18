@@ -8,5 +8,4 @@ const test = {
     gameUtils,
     createRoom,
 };
-
 injectWindow({ test, testMap });

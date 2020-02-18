@@ -11,3 +11,4 @@ testBuilder.enableDisableTest(getTestEnable(), getTestIgnore());
 testBuilder.init();
 
 export let testMap: any = mapTest(testBuilder.top_scope);
+circle_test.runTest('circle_get_data');

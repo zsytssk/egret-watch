@@ -19,8 +19,6 @@ function main() {
         fs.readFile(project_path + '/index.html', 'utf8', (err, data) => {
             const $ = cheerio.load(data);
             $('body').append('<script src="listenLoadScript.js"/>');
-            $('body').append('<script src="watchEgret.js"/>');
-            $('body').append('<script src="test.js"/>');
             res.send($.html());
         });
     });

@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "webpack-dev": "webpack --env=DEV --mode development",
-        "run-watch-egret:hhgzmj": "ts-node --files src/main.ts D:/zsytssk/job/hhgzmj",
-        "run-watch-egret:hhgzmj_copy": "ts-node --files src/main.ts D:/zsytssk/job/hhgzmj_copy"
+        "start1": "ts-node --files src/main.ts D:/zsytssk/job/hhgzmj",
+        "start2": "ts-node --files src/main.ts D:/zsytssk/job/hhgzmj_copy"
     },
     "keywords": [],
     "author": "",

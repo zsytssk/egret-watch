@@ -2,6 +2,9 @@
 window.addEventListener(
     'load_script',
     e => {
+        loadScript('');
+        loadSingleScript('watchEgret.js', () => {});
+        loadSingleScript('test.js', () => {});
         const vars = getUrlVars();
         const env = vars.env;
         const uid = vars.uid;

@@ -1,5 +1,6 @@
 import { Test } from 'testBuilder';
 import data from './circleRecord.data.json';
+import { injectProto, sleep } from '../utils/utils';
 
 export const circle_test = new Test('circle', runner => {
     runner.describe('circle_record_show', async () => {
@@ -10,7 +11,7 @@ export const circle_test = new Test('circle', runner => {
         stage.addChild(circle_record);
         let render_data = data.Res_Stage_FriendRoomRecord.friendRoomRecord;
         render_data = [...render_data, ...render_data, ...render_data];
-        circle_record.initUI(render_data);
+        circle_record['renderData'](render_data);
         circle_record.x = (stage.width - circle_record.width) / 2;
         circle_record.y = (stage.height - circle_record.height) / 2;
 
@@ -46,5 +47,35 @@ export const circle_test = new Test('circle', runner => {
         );
 
         console.log(`test:>`, circle_apply_list);
+    });
+
+    runner.describe('circle_get_data', async () => {
+        // const view = await new Promise((resolve, reject) => {
+        //     injectProto(gdmj.CircleRecordView, 'initUI', instance => {
+        //         console.log(`test:>instance`, instance);
+        //         resolve(instance);
+        //     });
+        // });
+        let num = 0;
+        App.MessageCenter.addListener(
+            gdmj.SocketMsg.HistoryRecord,
+            async (_data: any) => {
+                if (_data.test) {
+                    return;
+                }
+                num++;
+                if (num > 3) {
+                    num = 0;
+                    return;
+                }
+
+                await sleep(2);
+                App.MessageCenter.dispatch(gdmj.SocketMsg.HistoryRecord, {
+                    test: true,
+                    ...data,
+                });
+            },
+            null,
+        );
     });
 });

@@ -10,13 +10,13 @@
                             {
                                 "uid": 179048,
                                 "avatarUrl": "https://qscdn.gameabc2.com/static/headpic/visitor/5.jpg",
-                                "nickname": "游客179048",
+                                "nickname": "游客1",
                                 "point": 110
                             },
                             {
                                 "uid": 179073,
                                 "avatarUrl": "https://qscdn.gameabc2.com/static/headpic/visitor/93.jpg",
-                                "nickname": "游客179073",
+                                "nickname": "游客1",
                                 "point": -110
                             }
                         ],
@@ -38,7 +38,119 @@
                             {
                                 "uid": 179073,
                                 "avatarUrl": "https://qscdn.gameabc2.com/static/headpic/visitor/93.jpg",
-                                "nickname": "游客179073",
+                                "nickname": "2",
+                                "point": -50
+                            },
+                            {
+                                "uid": 179048,
+                                "avatarUrl": "https://qscdn.gameabc2.com/static/headpic/visitor/5.jpg",
+                                "nickname": "2",
+                                "point": 50
+                            }
+                        ],
+                        "time": 1579399168
+                    }
+                ],
+                "gameType": 13,
+                "dataHomeConfig": "{\"serverId\":100006,\"category\":13,\"subCategory\":2,\"locked\":false,\"level\":8,\"basePoint\":1,\"minEnterCoin\":0,\"maxEnterCoin\":0,\"openBeginTime\":0,\"openEndTime\":0,\"playerNum\":2,\"hasMan\":false,\"hasPin\":true,\"hasSou\":true,\"hasHonors\":false,\"canChow\":false,\"canWinByDiscard\":false,\"canWinFowlByDiscard\":false,\"canWinByRobKong\":true,\"robKongWinMultiple\":1,\"sevenPairsMultiple\":0,\"lastTileWinMultiple\":0,\"winAfterKongMultiple\":1,\"redDragonPoint\":0,\"noneGhostMultiple\":0,\"confirmDealer\":2,\"roundDealer\":2,\"followDealer\":false,\"higherAndHigher\":1,\"drawnWithKong\":false,\"openGhostType\":3,\"fourGhostWin\":false,\"robKongContract\":false,\"kongBombContract\":false,\"twelveGroundContract\":false,\"buyHorseType\":0,\"horseNum\":0,\"cost\":0,\"roundNum\":4,\"systemCountdownTime\":0,\"trusteeTimeoutCount\":0,\"balanceCountdown\":20,\"aiSwitch\":false,\"openChickenRule\":0,\"blackBoneChicken\":true,\"wholeHouse\":true,\"beanWrap\":true,\"chickenWrap\":true,\"robKongBean\":true,\"robKongChicken\":true,\"tumoAddOne\":true,\"voiceSwitch\":true,\"positionSwitch\":false,\"ronWin\":false,\"chickenCantRonwin\":false,\"smallWin\":false,\"twoRoomCard\":true,\"ownChicken\":true,\"highLowChicken\":true,\"openCardChicken\":true,\"numbericHorse\":false,\"playerNumRaw\":0,\"maxWin\":0,\"changeCard\":false,\"callForwarding\":false,\"tumoMutiple\":0,\"pointBar\":0,\"menQing\":0,\"daiYaojiu\":0,\"duanYaojiu\":0,\"jiangDui\":0,\"skyLand\":0,\"investTime\":0,\"flowerPigFan\":0,\"chuifengji\":false,\"wawaji\":false,\"huangleji\":0,\"chongfengji\":2,\"chongfengwuguji\":3,\"zerenji\":1,\"name\":\"\",\"ruleid\":0,\"tianting\":10,\"qianhouji\":false,\"xingqiji\":false,\"yinji\":false,\"shortcard\":false,\"xiaohubimen\":false,\"tiantingruanbao\":0,\"tiantingyingbao\":0}",
+                "battleId": 620,
+                "round": 4,
+                "homeId": 791211,
+                "dataFanConfig": "[{\"FanType\":48,\"Name\":\"地龙\",\"Point\":40,\"Priority\":48},{\"FanType\":24,\"Name\":\"青龙背\",\"Point\":30,\"Priority\":24},{\"FanType\":27,\"Name\":\"清单吊\",\"Point\":20,\"Priority\":27},{\"FanType\":26,\"Name\":\"清七对\",\"Point\":20,\"Priority\":26},{\"FanType\":25,\"Name\":\"龙七对\",\"Point\":20,\"Priority\":25},{\"FanType\":28,\"Name\":\"清大对\",\"Point\":15,\"Priority\":28},{\"FanType\":30,\"Name\":\"单吊\",\"Point\":10,\"Priority\":30},{\"FanType\":29,\"Name\":\"七对\",\"Point\":10,\"Priority\":29},{\"FanType\":22,\"Name\":\"地胡\",\"Point\":10,\"Priority\":22},{\"FanType\":21,\"Name\":\"天胡\",\"Point\":10,\"Priority\":21},{\"FanType\":7,\"Name\":\"清一色\",\"Point\":10,\"Priority\":7},{\"FanType\":31,\"Name\":\"大对子\",\"Point\":5,\"Priority\":31},{\"FanType\":2,\"Name\":\"平胡\",\"Point\":2,\"Priority\":2},{\"FanType\":50,\"Name\":\"大宽张\",\"Point\":0,\"Priority\":50},{\"FanType\":49,\"Name\":\"边卡吊\",\"Point\":0,\"Priority\":49},{\"FanType\":51,\"Name\":\"清地龙\",\"Point\":0,\"Priority\":48},{\"FanType\":47,\"Name\":\"清十八罗汉\",\"Point\":0,\"Priority\":47},{\"FanType\":46,\"Name\":\"十八罗汉\",\"Point\":0,\"Priority\":46},{\"FanType\":45,\"Name\":\"青龙七对\",\"Point\":0,\"Priority\":45},{\"FanType\":44,\"Name\":\"清金钩钓\",\"Point\":0,\"Priority\":44},{\"FanType\":43,\"Name\":\"将金钩钓\",\"Point\":0,\"Priority\":43},{\"FanType\":41,\"Name\":\"清七对\",\"Point\":0,\"Priority\":41},{\"FanType\":39,\"Name\":\"清碰\",\"Point\":0,\"Priority\":39},{\"FanType\":38,\"Name\":\"龙七对\",\"Point\":0,\"Priority\":38},{\"FanType\":37,\"Name\":\"金钩钓\",\"Point\":0,\"Priority\":37},{\"FanType\":36,\"Name\":\"七对\",\"Point\":0,\"Priority\":36},{\"FanType\":35,\"Name\":\"清一色\",\"Point\":0,\"Priority\":35},{\"FanType\":34,\"Name\":\"碰碰胡\",\"Point\":0,\"Priority\":34},{\"FanType\":33,\"Name\":\"平胡\",\"Point\":0,\"Priority\":33},{\"FanType\":32,\"Name\":\"自摸\",\"Point\":0,\"Priority\":32},{\"FanType\":23,\"Name\":\"十三幺\",\"Point\":0,\"Priority\":23},{\"FanType\":20,\"Name\":\"十八罗汉\",\"Point\":0,\"Priority\":20},{\"FanType\":19,\"Name\":\"三豪华七小对\",\"Point\":0,\"Priority\":19},{\"FanType\":18,\"Name\":\"双豪华七小对\",\"Point\":0,\"Priority\":18},{\"FanType\":17,\"Name\":\"清幺九\",\"Point\":0,\"Priority\":17},{\"FanType\":16,\"Name\":\"字一色\",\"Point\":0,\"Priority\":16},{\"FanType\":15,\"Name\":\"大四喜\",\"Point\":0,\"Priority\":15},{\"FanType\":14,\"Name\":\"大三元\",\"Point\":0,\"Priority\":14},{\"FanType\":13,\"Name\":\"混幺九\",\"Point\":0,\"Priority\":13},{\"FanType\":12,\"Name\":\"清碰\",\"Point\":0,\"Priority\":12},{\"FanType\":11,\"Name\":\"小四喜\",\"Point\":0,\"Priority\":11},{\"FanType\":10,\"Name\":\"小三元\",\"Point\":0,\"Priority\":10},{\"FanType\":9,\"Name\":\"豪华七小对\",\"Point\":0,\"Priority\":9},{\"FanType\":8,\"Name\":\"混碰\",\"Point\":0,\"Priority\":8},{\"FanType\":6,\"Name\":\"七小对\",\"Point\":0,\"Priority\":6},{\"FanType\":5,\"Name\":\"混一色\",\"Point\":0,\"Priority\":5},{\"FanType\":4,\"Name\":\"碰碰胡\",\"Point\":0,\"Priority\":4},{\"FanType\":3,\"Name\":\"四鬼胡牌\",\"Point\":0,\"Priority\":3},{\"FanType\":1,\"Name\":\"鸡胡\",\"Point\":0,\"Priority\":1}]",
+                "ownerUid": 179073
+            },
+            {
+                "userPointList": [
+                    {
+                        "userPoints": [
+                            {
+                                "uid": 179073,
+                                "avatarUrl": "https://qscdn.gameabc2.com/static/headpic/visitor/93.jpg",
+                                "nickname": "3",
+                                "point": -50
+                            },
+                            {
+                                "uid": 179048,
+                                "avatarUrl": "https://qscdn.gameabc2.com/static/headpic/visitor/5.jpg",
+                                "nickname": "游客179048",
+                                "point": 50
+                            }
+                        ],
+                        "time": 1579399168
+                    }
+                ],
+                "gameType": 13,
+                "dataHomeConfig": "{\"serverId\":100006,\"category\":13,\"subCategory\":2,\"locked\":false,\"level\":8,\"basePoint\":1,\"minEnterCoin\":0,\"maxEnterCoin\":0,\"openBeginTime\":0,\"openEndTime\":0,\"playerNum\":2,\"hasMan\":false,\"hasPin\":true,\"hasSou\":true,\"hasHonors\":false,\"canChow\":false,\"canWinByDiscard\":false,\"canWinFowlByDiscard\":false,\"canWinByRobKong\":true,\"robKongWinMultiple\":1,\"sevenPairsMultiple\":0,\"lastTileWinMultiple\":0,\"winAfterKongMultiple\":1,\"redDragonPoint\":0,\"noneGhostMultiple\":0,\"confirmDealer\":2,\"roundDealer\":2,\"followDealer\":false,\"higherAndHigher\":1,\"drawnWithKong\":false,\"openGhostType\":3,\"fourGhostWin\":false,\"robKongContract\":false,\"kongBombContract\":false,\"twelveGroundContract\":false,\"buyHorseType\":0,\"horseNum\":0,\"cost\":0,\"roundNum\":4,\"systemCountdownTime\":0,\"trusteeTimeoutCount\":0,\"balanceCountdown\":20,\"aiSwitch\":false,\"openChickenRule\":0,\"blackBoneChicken\":true,\"wholeHouse\":true,\"beanWrap\":true,\"chickenWrap\":true,\"robKongBean\":true,\"robKongChicken\":true,\"tumoAddOne\":true,\"voiceSwitch\":true,\"positionSwitch\":false,\"ronWin\":false,\"chickenCantRonwin\":false,\"smallWin\":false,\"twoRoomCard\":true,\"ownChicken\":true,\"highLowChicken\":true,\"openCardChicken\":true,\"numbericHorse\":false,\"playerNumRaw\":0,\"maxWin\":0,\"changeCard\":false,\"callForwarding\":false,\"tumoMutiple\":0,\"pointBar\":0,\"menQing\":0,\"daiYaojiu\":0,\"duanYaojiu\":0,\"jiangDui\":0,\"skyLand\":0,\"investTime\":0,\"flowerPigFan\":0,\"chuifengji\":false,\"wawaji\":false,\"huangleji\":0,\"chongfengji\":2,\"chongfengwuguji\":3,\"zerenji\":1,\"name\":\"\",\"ruleid\":0,\"tianting\":10,\"qianhouji\":false,\"xingqiji\":false,\"yinji\":false,\"shortcard\":false,\"xiaohubimen\":false,\"tiantingruanbao\":0,\"tiantingyingbao\":0}",
+                "battleId": 620,
+                "round": 4,
+                "homeId": 791211,
+                "dataFanConfig": "[{\"FanType\":48,\"Name\":\"地龙\",\"Point\":40,\"Priority\":48},{\"FanType\":24,\"Name\":\"青龙背\",\"Point\":30,\"Priority\":24},{\"FanType\":27,\"Name\":\"清单吊\",\"Point\":20,\"Priority\":27},{\"FanType\":26,\"Name\":\"清七对\",\"Point\":20,\"Priority\":26},{\"FanType\":25,\"Name\":\"龙七对\",\"Point\":20,\"Priority\":25},{\"FanType\":28,\"Name\":\"清大对\",\"Point\":15,\"Priority\":28},{\"FanType\":30,\"Name\":\"单吊\",\"Point\":10,\"Priority\":30},{\"FanType\":29,\"Name\":\"七对\",\"Point\":10,\"Priority\":29},{\"FanType\":22,\"Name\":\"地胡\",\"Point\":10,\"Priority\":22},{\"FanType\":21,\"Name\":\"天胡\",\"Point\":10,\"Priority\":21},{\"FanType\":7,\"Name\":\"清一色\",\"Point\":10,\"Priority\":7},{\"FanType\":31,\"Name\":\"大对子\",\"Point\":5,\"Priority\":31},{\"FanType\":2,\"Name\":\"平胡\",\"Point\":2,\"Priority\":2},{\"FanType\":50,\"Name\":\"大宽张\",\"Point\":0,\"Priority\":50},{\"FanType\":49,\"Name\":\"边卡吊\",\"Point\":0,\"Priority\":49},{\"FanType\":51,\"Name\":\"清地龙\",\"Point\":0,\"Priority\":48},{\"FanType\":47,\"Name\":\"清十八罗汉\",\"Point\":0,\"Priority\":47},{\"FanType\":46,\"Name\":\"十八罗汉\",\"Point\":0,\"Priority\":46},{\"FanType\":45,\"Name\":\"青龙七对\",\"Point\":0,\"Priority\":45},{\"FanType\":44,\"Name\":\"清金钩钓\",\"Point\":0,\"Priority\":44},{\"FanType\":43,\"Name\":\"将金钩钓\",\"Point\":0,\"Priority\":43},{\"FanType\":41,\"Name\":\"清七对\",\"Point\":0,\"Priority\":41},{\"FanType\":39,\"Name\":\"清碰\",\"Point\":0,\"Priority\":39},{\"FanType\":38,\"Name\":\"龙七对\",\"Point\":0,\"Priority\":38},{\"FanType\":37,\"Name\":\"金钩钓\",\"Point\":0,\"Priority\":37},{\"FanType\":36,\"Name\":\"七对\",\"Point\":0,\"Priority\":36},{\"FanType\":35,\"Name\":\"清一色\",\"Point\":0,\"Priority\":35},{\"FanType\":34,\"Name\":\"碰碰胡\",\"Point\":0,\"Priority\":34},{\"FanType\":33,\"Name\":\"平胡\",\"Point\":0,\"Priority\":33},{\"FanType\":32,\"Name\":\"自摸\",\"Point\":0,\"Priority\":32},{\"FanType\":23,\"Name\":\"十三幺\",\"Point\":0,\"Priority\":23},{\"FanType\":20,\"Name\":\"十八罗汉\",\"Point\":0,\"Priority\":20},{\"FanType\":19,\"Name\":\"三豪华七小对\",\"Point\":0,\"Priority\":19},{\"FanType\":18,\"Name\":\"双豪华七小对\",\"Point\":0,\"Priority\":18},{\"FanType\":17,\"Name\":\"清幺九\",\"Point\":0,\"Priority\":17},{\"FanType\":16,\"Name\":\"字一色\",\"Point\":0,\"Priority\":16},{\"FanType\":15,\"Name\":\"大四喜\",\"Point\":0,\"Priority\":15},{\"FanType\":14,\"Name\":\"大三元\",\"Point\":0,\"Priority\":14},{\"FanType\":13,\"Name\":\"混幺九\",\"Point\":0,\"Priority\":13},{\"FanType\":12,\"Name\":\"清碰\",\"Point\":0,\"Priority\":12},{\"FanType\":11,\"Name\":\"小四喜\",\"Point\":0,\"Priority\":11},{\"FanType\":10,\"Name\":\"小三元\",\"Point\":0,\"Priority\":10},{\"FanType\":9,\"Name\":\"豪华七小对\",\"Point\":0,\"Priority\":9},{\"FanType\":8,\"Name\":\"混碰\",\"Point\":0,\"Priority\":8},{\"FanType\":6,\"Name\":\"七小对\",\"Point\":0,\"Priority\":6},{\"FanType\":5,\"Name\":\"混一色\",\"Point\":0,\"Priority\":5},{\"FanType\":4,\"Name\":\"碰碰胡\",\"Point\":0,\"Priority\":4},{\"FanType\":3,\"Name\":\"四鬼胡牌\",\"Point\":0,\"Priority\":3},{\"FanType\":1,\"Name\":\"鸡胡\",\"Point\":0,\"Priority\":1}]",
+                "ownerUid": 179073
+            },
+            {
+                "userPointList": [
+                    {
+                        "userPoints": [
+                            {
+                                "uid": 179073,
+                                "avatarUrl": "https://qscdn.gameabc2.com/static/headpic/visitor/93.jpg",
+                                "nickname": "4",
+                                "point": -50
+                            },
+                            {
+                                "uid": 179048,
+                                "avatarUrl": "https://qscdn.gameabc2.com/static/headpic/visitor/5.jpg",
+                                "nickname": "游客179048",
+                                "point": 50
+                            }
+                        ],
+                        "time": 1579399168
+                    }
+                ],
+                "gameType": 13,
+                "dataHomeConfig": "{\"serverId\":100006,\"category\":13,\"subCategory\":2,\"locked\":false,\"level\":8,\"basePoint\":1,\"minEnterCoin\":0,\"maxEnterCoin\":0,\"openBeginTime\":0,\"openEndTime\":0,\"playerNum\":2,\"hasMan\":false,\"hasPin\":true,\"hasSou\":true,\"hasHonors\":false,\"canChow\":false,\"canWinByDiscard\":false,\"canWinFowlByDiscard\":false,\"canWinByRobKong\":true,\"robKongWinMultiple\":1,\"sevenPairsMultiple\":0,\"lastTileWinMultiple\":0,\"winAfterKongMultiple\":1,\"redDragonPoint\":0,\"noneGhostMultiple\":0,\"confirmDealer\":2,\"roundDealer\":2,\"followDealer\":false,\"higherAndHigher\":1,\"drawnWithKong\":false,\"openGhostType\":3,\"fourGhostWin\":false,\"robKongContract\":false,\"kongBombContract\":false,\"twelveGroundContract\":false,\"buyHorseType\":0,\"horseNum\":0,\"cost\":0,\"roundNum\":4,\"systemCountdownTime\":0,\"trusteeTimeoutCount\":0,\"balanceCountdown\":20,\"aiSwitch\":false,\"openChickenRule\":0,\"blackBoneChicken\":true,\"wholeHouse\":true,\"beanWrap\":true,\"chickenWrap\":true,\"robKongBean\":true,\"robKongChicken\":true,\"tumoAddOne\":true,\"voiceSwitch\":true,\"positionSwitch\":false,\"ronWin\":false,\"chickenCantRonwin\":false,\"smallWin\":false,\"twoRoomCard\":true,\"ownChicken\":true,\"highLowChicken\":true,\"openCardChicken\":true,\"numbericHorse\":false,\"playerNumRaw\":0,\"maxWin\":0,\"changeCard\":false,\"callForwarding\":false,\"tumoMutiple\":0,\"pointBar\":0,\"menQing\":0,\"daiYaojiu\":0,\"duanYaojiu\":0,\"jiangDui\":0,\"skyLand\":0,\"investTime\":0,\"flowerPigFan\":0,\"chuifengji\":false,\"wawaji\":false,\"huangleji\":0,\"chongfengji\":2,\"chongfengwuguji\":3,\"zerenji\":1,\"name\":\"\",\"ruleid\":0,\"tianting\":10,\"qianhouji\":false,\"xingqiji\":false,\"yinji\":false,\"shortcard\":false,\"xiaohubimen\":false,\"tiantingruanbao\":0,\"tiantingyingbao\":0}",
+                "battleId": 620,
+                "round": 4,
+                "homeId": 791211,
+                "dataFanConfig": "[{\"FanType\":48,\"Name\":\"地龙\",\"Point\":40,\"Priority\":48},{\"FanType\":24,\"Name\":\"青龙背\",\"Point\":30,\"Priority\":24},{\"FanType\":27,\"Name\":\"清单吊\",\"Point\":20,\"Priority\":27},{\"FanType\":26,\"Name\":\"清七对\",\"Point\":20,\"Priority\":26},{\"FanType\":25,\"Name\":\"龙七对\",\"Point\":20,\"Priority\":25},{\"FanType\":28,\"Name\":\"清大对\",\"Point\":15,\"Priority\":28},{\"FanType\":30,\"Name\":\"单吊\",\"Point\":10,\"Priority\":30},{\"FanType\":29,\"Name\":\"七对\",\"Point\":10,\"Priority\":29},{\"FanType\":22,\"Name\":\"地胡\",\"Point\":10,\"Priority\":22},{\"FanType\":21,\"Name\":\"天胡\",\"Point\":10,\"Priority\":21},{\"FanType\":7,\"Name\":\"清一色\",\"Point\":10,\"Priority\":7},{\"FanType\":31,\"Name\":\"大对子\",\"Point\":5,\"Priority\":31},{\"FanType\":2,\"Name\":\"平胡\",\"Point\":2,\"Priority\":2},{\"FanType\":50,\"Name\":\"大宽张\",\"Point\":0,\"Priority\":50},{\"FanType\":49,\"Name\":\"边卡吊\",\"Point\":0,\"Priority\":49},{\"FanType\":51,\"Name\":\"清地龙\",\"Point\":0,\"Priority\":48},{\"FanType\":47,\"Name\":\"清十八罗汉\",\"Point\":0,\"Priority\":47},{\"FanType\":46,\"Name\":\"十八罗汉\",\"Point\":0,\"Priority\":46},{\"FanType\":45,\"Name\":\"青龙七对\",\"Point\":0,\"Priority\":45},{\"FanType\":44,\"Name\":\"清金钩钓\",\"Point\":0,\"Priority\":44},{\"FanType\":43,\"Name\":\"将金钩钓\",\"Point\":0,\"Priority\":43},{\"FanType\":41,\"Name\":\"清七对\",\"Point\":0,\"Priority\":41},{\"FanType\":39,\"Name\":\"清碰\",\"Point\":0,\"Priority\":39},{\"FanType\":38,\"Name\":\"龙七对\",\"Point\":0,\"Priority\":38},{\"FanType\":37,\"Name\":\"金钩钓\",\"Point\":0,\"Priority\":37},{\"FanType\":36,\"Name\":\"七对\",\"Point\":0,\"Priority\":36},{\"FanType\":35,\"Name\":\"清一色\",\"Point\":0,\"Priority\":35},{\"FanType\":34,\"Name\":\"碰碰胡\",\"Point\":0,\"Priority\":34},{\"FanType\":33,\"Name\":\"平胡\",\"Point\":0,\"Priority\":33},{\"FanType\":32,\"Name\":\"自摸\",\"Point\":0,\"Priority\":32},{\"FanType\":23,\"Name\":\"十三幺\",\"Point\":0,\"Priority\":23},{\"FanType\":20,\"Name\":\"十八罗汉\",\"Point\":0,\"Priority\":20},{\"FanType\":19,\"Name\":\"三豪华七小对\",\"Point\":0,\"Priority\":19},{\"FanType\":18,\"Name\":\"双豪华七小对\",\"Point\":0,\"Priority\":18},{\"FanType\":17,\"Name\":\"清幺九\",\"Point\":0,\"Priority\":17},{\"FanType\":16,\"Name\":\"字一色\",\"Point\":0,\"Priority\":16},{\"FanType\":15,\"Name\":\"大四喜\",\"Point\":0,\"Priority\":15},{\"FanType\":14,\"Name\":\"大三元\",\"Point\":0,\"Priority\":14},{\"FanType\":13,\"Name\":\"混幺九\",\"Point\":0,\"Priority\":13},{\"FanType\":12,\"Name\":\"清碰\",\"Point\":0,\"Priority\":12},{\"FanType\":11,\"Name\":\"小四喜\",\"Point\":0,\"Priority\":11},{\"FanType\":10,\"Name\":\"小三元\",\"Point\":0,\"Priority\":10},{\"FanType\":9,\"Name\":\"豪华七小对\",\"Point\":0,\"Priority\":9},{\"FanType\":8,\"Name\":\"混碰\",\"Point\":0,\"Priority\":8},{\"FanType\":6,\"Name\":\"七小对\",\"Point\":0,\"Priority\":6},{\"FanType\":5,\"Name\":\"混一色\",\"Point\":0,\"Priority\":5},{\"FanType\":4,\"Name\":\"碰碰胡\",\"Point\":0,\"Priority\":4},{\"FanType\":3,\"Name\":\"四鬼胡牌\",\"Point\":0,\"Priority\":3},{\"FanType\":1,\"Name\":\"鸡胡\",\"Point\":0,\"Priority\":1}]",
+                "ownerUid": 179073
+            },
+            {
+                "userPointList": [
+                    {
+                        "userPoints": [
+                            {
+                                "uid": 179073,
+                                "avatarUrl": "https://qscdn.gameabc2.com/static/headpic/visitor/93.jpg",
+                                "nickname": "5",
+                                "point": -50
+                            },
+                            {
+                                "uid": 179048,
+                                "avatarUrl": "https://qscdn.gameabc2.com/static/headpic/visitor/5.jpg",
+                                "nickname": "游客179048",
+                                "point": 50
+                            }
+                        ],
+                        "time": 1579399168
+                    }
+                ],
+                "gameType": 13,
+                "dataHomeConfig": "{\"serverId\":100006,\"category\":13,\"subCategory\":2,\"locked\":false,\"level\":8,\"basePoint\":1,\"minEnterCoin\":0,\"maxEnterCoin\":0,\"openBeginTime\":0,\"openEndTime\":0,\"playerNum\":2,\"hasMan\":false,\"hasPin\":true,\"hasSou\":true,\"hasHonors\":false,\"canChow\":false,\"canWinByDiscard\":false,\"canWinFowlByDiscard\":false,\"canWinByRobKong\":true,\"robKongWinMultiple\":1,\"sevenPairsMultiple\":0,\"lastTileWinMultiple\":0,\"winAfterKongMultiple\":1,\"redDragonPoint\":0,\"noneGhostMultiple\":0,\"confirmDealer\":2,\"roundDealer\":2,\"followDealer\":false,\"higherAndHigher\":1,\"drawnWithKong\":false,\"openGhostType\":3,\"fourGhostWin\":false,\"robKongContract\":false,\"kongBombContract\":false,\"twelveGroundContract\":false,\"buyHorseType\":0,\"horseNum\":0,\"cost\":0,\"roundNum\":4,\"systemCountdownTime\":0,\"trusteeTimeoutCount\":0,\"balanceCountdown\":20,\"aiSwitch\":false,\"openChickenRule\":0,\"blackBoneChicken\":true,\"wholeHouse\":true,\"beanWrap\":true,\"chickenWrap\":true,\"robKongBean\":true,\"robKongChicken\":true,\"tumoAddOne\":true,\"voiceSwitch\":true,\"positionSwitch\":false,\"ronWin\":false,\"chickenCantRonwin\":false,\"smallWin\":false,\"twoRoomCard\":true,\"ownChicken\":true,\"highLowChicken\":true,\"openCardChicken\":true,\"numbericHorse\":false,\"playerNumRaw\":0,\"maxWin\":0,\"changeCard\":false,\"callForwarding\":false,\"tumoMutiple\":0,\"pointBar\":0,\"menQing\":0,\"daiYaojiu\":0,\"duanYaojiu\":0,\"jiangDui\":0,\"skyLand\":0,\"investTime\":0,\"flowerPigFan\":0,\"chuifengji\":false,\"wawaji\":false,\"huangleji\":0,\"chongfengji\":2,\"chongfengwuguji\":3,\"zerenji\":1,\"name\":\"\",\"ruleid\":0,\"tianting\":10,\"qianhouji\":false,\"xingqiji\":false,\"yinji\":false,\"shortcard\":false,\"xiaohubimen\":false,\"tiantingruanbao\":0,\"tiantingyingbao\":0}",
+                "battleId": 620,
+                "round": 4,
+                "homeId": 791211,
+                "dataFanConfig": "[{\"FanType\":48,\"Name\":\"地龙\",\"Point\":40,\"Priority\":48},{\"FanType\":24,\"Name\":\"青龙背\",\"Point\":30,\"Priority\":24},{\"FanType\":27,\"Name\":\"清单吊\",\"Point\":20,\"Priority\":27},{\"FanType\":26,\"Name\":\"清七对\",\"Point\":20,\"Priority\":26},{\"FanType\":25,\"Name\":\"龙七对\",\"Point\":20,\"Priority\":25},{\"FanType\":28,\"Name\":\"清大对\",\"Point\":15,\"Priority\":28},{\"FanType\":30,\"Name\":\"单吊\",\"Point\":10,\"Priority\":30},{\"FanType\":29,\"Name\":\"七对\",\"Point\":10,\"Priority\":29},{\"FanType\":22,\"Name\":\"地胡\",\"Point\":10,\"Priority\":22},{\"FanType\":21,\"Name\":\"天胡\",\"Point\":10,\"Priority\":21},{\"FanType\":7,\"Name\":\"清一色\",\"Point\":10,\"Priority\":7},{\"FanType\":31,\"Name\":\"大对子\",\"Point\":5,\"Priority\":31},{\"FanType\":2,\"Name\":\"平胡\",\"Point\":2,\"Priority\":2},{\"FanType\":50,\"Name\":\"大宽张\",\"Point\":0,\"Priority\":50},{\"FanType\":49,\"Name\":\"边卡吊\",\"Point\":0,\"Priority\":49},{\"FanType\":51,\"Name\":\"清地龙\",\"Point\":0,\"Priority\":48},{\"FanType\":47,\"Name\":\"清十八罗汉\",\"Point\":0,\"Priority\":47},{\"FanType\":46,\"Name\":\"十八罗汉\",\"Point\":0,\"Priority\":46},{\"FanType\":45,\"Name\":\"青龙七对\",\"Point\":0,\"Priority\":45},{\"FanType\":44,\"Name\":\"清金钩钓\",\"Point\":0,\"Priority\":44},{\"FanType\":43,\"Name\":\"将金钩钓\",\"Point\":0,\"Priority\":43},{\"FanType\":41,\"Name\":\"清七对\",\"Point\":0,\"Priority\":41},{\"FanType\":39,\"Name\":\"清碰\",\"Point\":0,\"Priority\":39},{\"FanType\":38,\"Name\":\"龙七对\",\"Point\":0,\"Priority\":38},{\"FanType\":37,\"Name\":\"金钩钓\",\"Point\":0,\"Priority\":37},{\"FanType\":36,\"Name\":\"七对\",\"Point\":0,\"Priority\":36},{\"FanType\":35,\"Name\":\"清一色\",\"Point\":0,\"Priority\":35},{\"FanType\":34,\"Name\":\"碰碰胡\",\"Point\":0,\"Priority\":34},{\"FanType\":33,\"Name\":\"平胡\",\"Point\":0,\"Priority\":33},{\"FanType\":32,\"Name\":\"自摸\",\"Point\":0,\"Priority\":32},{\"FanType\":23,\"Name\":\"十三幺\",\"Point\":0,\"Priority\":23},{\"FanType\":20,\"Name\":\"十八罗汉\",\"Point\":0,\"Priority\":20},{\"FanType\":19,\"Name\":\"三豪华七小对\",\"Point\":0,\"Priority\":19},{\"FanType\":18,\"Name\":\"双豪华七小对\",\"Point\":0,\"Priority\":18},{\"FanType\":17,\"Name\":\"清幺九\",\"Point\":0,\"Priority\":17},{\"FanType\":16,\"Name\":\"字一色\",\"Point\":0,\"Priority\":16},{\"FanType\":15,\"Name\":\"大四喜\",\"Point\":0,\"Priority\":15},{\"FanType\":14,\"Name\":\"大三元\",\"Point\":0,\"Priority\":14},{\"FanType\":13,\"Name\":\"混幺九\",\"Point\":0,\"Priority\":13},{\"FanType\":12,\"Name\":\"清碰\",\"Point\":0,\"Priority\":12},{\"FanType\":11,\"Name\":\"小四喜\",\"Point\":0,\"Priority\":11},{\"FanType\":10,\"Name\":\"小三元\",\"Point\":0,\"Priority\":10},{\"FanType\":9,\"Name\":\"豪华七小对\",\"Point\":0,\"Priority\":9},{\"FanType\":8,\"Name\":\"混碰\",\"Point\":0,\"Priority\":8},{\"FanType\":6,\"Name\":\"七小对\",\"Point\":0,\"Priority\":6},{\"FanType\":5,\"Name\":\"混一色\",\"Point\":0,\"Priority\":5},{\"FanType\":4,\"Name\":\"碰碰胡\",\"Point\":0,\"Priority\":4},{\"FanType\":3,\"Name\":\"四鬼胡牌\",\"Point\":0,\"Priority\":3},{\"FanType\":1,\"Name\":\"鸡胡\",\"Point\":0,\"Priority\":1}]",
+                "ownerUid": 179073
+            },
+            {
+                "userPointList": [
+                    {
+                        "userPoints": [
+                            {
+                                "uid": 179073,
+                                "avatarUrl": "https://qscdn.gameabc2.com/static/headpic/visitor/93.jpg",
+                                "nickname": "6",
                                 "point": -50
                             },
                             {
